@@ -1,0 +1,30 @@
+.navbar-nav > .nav-item {
+    padding: 0px 10px;
+}
+
+.dropdown > .dropdown-menu {
+    background-color:rgb(101, 207, 101);
+}
+
+.dropdown > .dropdown-menu > .dropdown-item:hover {
+    background-color:rgb(114, 231, 114);
+}
+
+.main-body {
+    width: 90%;
+    background-color: aqua;
+    margin: auto;
+    height: 2000px;
+}
+
+.logo {
+    position: absolute;
+    margin-left: 2%;
+    margin-top: 10%;
+    width: 150px;
+    height: 150px;
+    background-color: bisque;
+    background: url('../assets/logo.jpg');
+    background-position: center center;
+    background-size: cover;
+}
