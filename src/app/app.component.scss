@@ -1,24 +1,52 @@
+$main-theme: rgb(101, 207, 101);
+$main-theme-hover: rgb(107, 230, 107);
+
+.navbar {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.14);
+}
+
+.dropdown-item {
+    color: cornsilk;
+}
+
 .navbar-nav > .nav-item {
     padding: 0px 10px;
 }
 
+.nav-item > .nav-link {
+    color: cornsilk;
+}
+
+.navbar-nav > .nav-item:hover {
+    padding: 0px 10px;
+    background-color: $main-theme-hover;
+    border-radius: 10px;
+    transition: background-color 0.4s;
+    transition-timing-function: ease;
+}
+
 .dropdown > .dropdown-menu {
-    background-color:rgb(101, 207, 101);
+    background-color: $main-theme;
+    border: 0px solid black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.14);
 }
 
 .dropdown > .dropdown-menu > .dropdown-item:hover {
-    background-color:rgb(114, 231, 114);
+    transition: background-color 0.4s;
+    background-color: $main-theme-hover;
 }
 
 .main-body {
-    width: 90%;
-    background-color: aqua;
+    width: 85%;
+    background-color: $main-theme;
     margin: auto;
     height: 2000px;
+    padding: 10px 10px;
+    border-radius: 10px;
 }
 
 .logo {
-    position: absolute;
+    position: fixed;
     margin-left: 2%;
     margin-top: 10%;
     width: 150px;
@@ -27,4 +55,44 @@
     background: url('../assets/logo.jpg');
     background-position: center center;
     background-size: cover;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 10px;
+}
+
+.socialmedia {
+    position: fixed;
+    margin-top: 300px;
+    height: 150px;
+    width: 50px;
+    background-color: blue;
+}
+
+.icon-facebook, .icon-instagram, .icon-blogger {
+    margin-left: 0px;
+    height: 40px;
+    width: 40px;
+}
+
+.icon-facebook {
+    background-color: cornflowerblue;
+}
+
+.icon-facebook:hover {
+    background-color: rgba(100, 148, 237, 0.8);
+}
+
+.icon-instagram {
+    background-color: rgba(188, 143, 143, 1);
+}
+
+.icon-instagram:hover {
+    background-color: rgba(188, 143, 143, 0.8);
+}
+
+.icon-blogger {
+    background-color: rgba(255, 166, 0, 1);
+}
+
+.icon-blogger:hover {
+    background-color: rgba(255, 166, 0, 0.8);
 }

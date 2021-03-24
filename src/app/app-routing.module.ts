@@ -1,6 +1,7 @@
 import { AppComponent } from './app.component';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   imports: [
@@ -9,14 +10,10 @@ import { RouterModule } from '@angular/router';
         path: "",
         component: AppComponent,
         children: [
-          // {
-          //   path: "home",
-          //   component: HomeComponent,
-          //   canActivate: [AppRouteGuard],
-          //   data: {
-          //     title: "Dashboard",
-          //   },
-          // },
+          {
+            path: "login",
+            component: LoginComponent,
+          },
         ],
       },
       // {
