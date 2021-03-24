@@ -1,9 +1,4 @@
-<div class="socialmedia">
-  <div class="row"><div class="icon-facebook"></div></div>
-  <div class="row"><div class="icon-instagram"></div></div>
-  <div class="row"><div class="icon-blogger"></div></div>
-</div>
-<nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: rgb(102, 209, 102);">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top">
   <div class="logo"></div>
   <button style="float:right" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -18,7 +13,7 @@
           Do adopcji
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Psy</a>
+          <a class="dropdown-item" routerLink="/doadopcji" routerLinkActive="true">Psy</a>
           <a class="dropdown-item" href="#">Koty</a>
         </div>
       </li>
@@ -35,13 +30,17 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Kontakt</a>
+        <a class="nav-link" routerLink="admin/login" routerLinkActive="active">Kontakt</a>
       </li>
       
     </ul>
   </div>
 </nav>
+<div class="socialmedia">
+  <div class="row"><div class="icon-facebook"></div></div>
+  <div class="row"><div class="icon-instagram"></div></div>
+  <div class="row"><div class="icon-blogger"></div></div>
+</div>
 <div class="main-body">
-  <div style="height: 300px; background-color: lightpink;"></div>
-  <img src="../assets/homepage_bg.jpg" class="img-fluid" alt="Schronisko" style="height: 300px;">
+  <router-outlet></router-outlet>
 </div>
