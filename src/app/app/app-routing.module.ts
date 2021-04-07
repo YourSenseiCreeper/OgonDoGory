@@ -3,6 +3,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AdoptionComponent } from './adoption/adoption.component';
+import { AdoptionDetailsComponent } from './adoption-details/adoption-details.component';
 
 @NgModule({
   imports: [
@@ -14,7 +15,12 @@ import { AdoptionComponent } from './adoption/adoption.component';
             path: "", component: HomepageComponent
           },
           {
-            path: "doadopcji", component: AdoptionComponent
+            path: "doadopcji", component: AdoptionComponent,
+            children: [
+              {
+                path: "{id}", component: AdoptionDetailsComponent
+              }
+            ]
           }
         ]
       },

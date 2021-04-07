@@ -50,7 +50,8 @@ export interface ISearchQuery {
 }
 
 const initialState: IData = {
-  animals: [{name: 'Ciapek', age: 2, isDog: true, isCat: false, species: 'Dog francuski', foundDate: moment(), descriptionParagraphs: ["Pierwsza linia opisu", "Druga linia opisu"], keywords: ['dog', 'ciapek', 'radosny'], pictureUrl: ''}],
+  animals: [{name: 'Ciapek', age: 2, isDog: true, isCat: false, species: 'Dog francuski', foundDate: moment(), descriptionParagraphs: ["Pierwsza linia opisu", "Druga linia opisu"], keywords: ['dog', 'ciapek', 'radosny'], pictureUrl: '../assets/dog.jpg'},
+            {name: 'Zeus', age: 3, isDog: true, isCat: false, species: 'Dog francuski', foundDate: moment(), descriptionParagraphs: ["Pierwsza linia opisu", "Druga linia opisu"], keywords: ['dog', 'ciapek', 'radosny'], pictureUrl: '../assets/dog.jpg'}],
   posts: [{title: 'Pierwszy post', publicationDate: moment(), author: 'Admin', paragraphs: ['Pierwszy akapit', 'Drugi akapit']}],
   dogSpecies: ['Dog francuski'],
   catSpecies: ['Kot perski'],
@@ -61,10 +62,8 @@ const initialState: IData = {
   providedIn: 'root'
 })
 export class DataService {
-
-  constructor(private state: IData) {
-    state = initialState;
-   }
+  private state: IData = initialState;
+  constructor() {}
 
    addAnimal(animal: Animal) {
      this.state.animals.push(animal);

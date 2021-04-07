@@ -1,6 +1,10 @@
 $main-theme: rgb(101, 207, 101);
 $main-theme-hover: rgb(107, 230, 107);
 
+body {
+    background: url("../../assets/homepage_bg_big.jpg") center center !important;
+}
+
 .navbar {
     background-color: $main-theme;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.14);
@@ -37,10 +41,14 @@ $main-theme-hover: rgb(107, 230, 107);
     background-color: $main-theme-hover;
 }
 
-body {
-    background: url('../../assets/homepage_bg_big.jpg') no-repeat center center fixed;
-    background-size: cover;
-}
+// .body-background {
+//     position: absolute;
+//     top: 0px;
+//     background: url('../../assets/homepage_bg_big.jpg');
+//     background-position: center center;
+//     background-size: cover;
+//     z-index: -1;
+// }
 
 // .main-body::before {
 //     margin-top: 25%;
@@ -49,7 +57,7 @@ body {
 .main-body {
     width: 85%;
     background-color: rgb(255, 253, 246);
-    margin: 25% auto;
+    margin: 0px auto;
     height: 2000px;
     padding: 20px 20px;
     border: 5px solid $main-theme;
@@ -57,7 +65,7 @@ body {
 }
 
 .logo {
-    position: fixed;
+    position: absolute;
     margin-left: 2%;
     margin-top: 10%;
     width: 150px;
@@ -68,6 +76,7 @@ body {
     background-size: cover;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 10px;
+    transition: width 0.5s height 0,5s;
 }
 
 .socialmedia {
@@ -107,3 +116,12 @@ body {
 .icon-blogger:hover {
     background-color: rgba(255, 166, 0, 0.8);
 }
+
+// html:not([data-scroll='0']) {
+
+//     .logo {
+//         width: 75px;
+//         height: 75px;
+//     }
+
+// }
