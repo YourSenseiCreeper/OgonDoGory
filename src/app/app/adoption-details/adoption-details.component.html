@@ -1,13 +1,15 @@
 <h1>Zwierzęta do adopcji</h1>
 <!-- <img src="../../assets/homepage_bg.jpg" class="img-fluid" alt="Schronisko" style="height: 300px;"> -->
 <div>
-    <div class="adoption-box" *ngFor="let animal of animals">
-        <img src="{{ animal.pictureUrl }}" class="img-fluid" alt="Schronisko" style="height: 300px;"> 
-        <p>{{ animal.name }}</p>
-        <p>{{ animal.age }} lat</p>
-        <p>W schronisku od {{ animal.foundDate }}</p>
-        <button routerLink="" class="btn btn-primary">Poznaj mnie</button>
-    </div>
+    <div class="card bg-dark text-white" *ngFor="let animal of animals">
+        <img src="{{ animal.pictureUrl }}" class="card-img" alt="Schronisko" style="height: 200px;"> 
+        <div class="card-img-overlay">
+          <h5 class="card-title">{{ animal.name }}</h5>
+          <p class="card-text">{{ animal.age }} lat</p>
+          <p class="card-text">W schronisku od {{ animal.foundDate }}</p>
+          <a href="#" class="btn btn-primary">Poznaj mnie</a>
+        </div>
+      </div>
 </div>
 
   
