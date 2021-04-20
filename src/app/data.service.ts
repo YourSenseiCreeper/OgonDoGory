@@ -65,7 +65,7 @@ const initialState: IData = {
             {id: 5, name: 'Popiół', age: 3, isDog: false, isCat: true, species: 'Kot', foundDate: moment(), descriptionParagraphs: ["Pierwsza linia opisu", "Druga linia opisu"], keywords: ['dog', 'ciapek', 'radosny'], pictureUrl: '../assets/cats/popiół.jpg'},
             {id: 6, name: 'Birma', age: 3, isDog: false, isCat: true, species: 'Kot', foundDate: moment(), descriptionParagraphs: ["Pierwsza linia opisu", "Druga linia opisu"], keywords: ['dog', 'ciapek', 'radosny'], pictureUrl: '../assets/cats/birma.jpg'},
             {id: 7, name: 'Garfield', age: 3, isDog: false, isCat: true, species: 'Kot', foundDate: moment(), descriptionParagraphs: ["Pierwsza linia opisu", "Druga linia opisu"], keywords: ['dog', 'ciapek', 'radosny'], pictureUrl: '../assets/cats/garfield.jpg'},
-            {id: 8, name: 'Malachit', age: 3, isDog: false, isCat: true, species: 'Kot', foundDate: moment(), descriptionParagraphs: ["Pierwsza linia opisu", "Druga linia opisu"], keywords: ['dog', 'ciapek', 'radosny'], pictureUrl: '../assets/cats/malachit.jpg'},
+            {id: 8, name: 'Malachit', age: 3, isDog: false, isCat: true, species: 'Kot', foundDate: moment(), descriptionParagraphs: ["Uroczy kot o pięknych oczach", "Druga linia opisu"], keywords: ['kot', 'malachit', 'oczy'], pictureUrl: '../assets/cats/malachit.jpg'},
           ],
   posts: [{title: 'Pierwszy post', publicationDate: moment(), author: 'Admin', paragraphs: ['Pierwszy akapit', 'Drugi akapit']}],
   dogSpecies: ['Dog francuski'],
