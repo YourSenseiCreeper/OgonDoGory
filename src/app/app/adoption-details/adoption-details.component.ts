@@ -1,7 +1,8 @@
-import { Animal, DataService } from '../../data.service';
+import { IAnimal, DataService, Animal } from '../../data.service';
 import { Component, OnInit } from "@angular/core";
 import { Title } from "@angular/platform-browser";
 import { ActivatedRoute } from '@angular/router';
+import * as moment from 'moment';
 
 @Component({
     selector: 'app-adoption-details',
@@ -10,16 +11,19 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AdoptionDetailsComponent implements OnInit {
     
-    public animals: Animal[] = [];
+    public animal = new Animal(0, 'Ładowanie', 1, true, false, '', moment(), ['Linia 1', 'Linia 2'], [], '../../../assets/dog-1866530_1280.jpg');
     
     constructor(private title: Title,
         private dataService: DataService,
-        private activetedRoute: ActivatedRoute) {
+        private activatedRoute: ActivatedRoute) {
     }
 
     ngOnInit() {
         this.title.setTitle("Do adopcji");
-        this.activetedRoute.params.subscribe(v => v);
-        this.animals = this.dataService.getAllDogs();
+        this.activatedRoute.paramMap.subscribe(paramMap => {
+            let animalId = Number(paramMap.get('id'));
+            this.animal = this.dataService.get(animalId);
+            this.title.setTitle(this.animal.name);
+        });
     }
 }

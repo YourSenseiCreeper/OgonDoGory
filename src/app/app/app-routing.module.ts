@@ -20,12 +20,9 @@ import { AdoptionDetailsComponent } from './adoption-details/adoption-details.co
               {
                 path: "{id}", component: AdoptionDetailsComponent,
               },
-              {
-                path: "psy", component: AdoptionComponent,
-              },
-              {
-                path: "koty", component: AdoptionComponent,
-              }
+              { path: "psy", component: AdoptionComponent },
+              { path: "koty", component: AdoptionComponent },
+              { path: "wszystkie", component: AdoptionComponent }
             ]
           }
         ]

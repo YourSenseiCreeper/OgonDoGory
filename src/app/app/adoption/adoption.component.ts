@@ -1,4 +1,4 @@
-import { Animal, DataService } from './../../data.service';
+import { IAnimal, DataService } from './../../data.service';
 import { Component, OnInit } from "@angular/core";
 import { Title } from "@angular/platform-browser";
 import { ActivatedRoute, Router } from '@angular/router';
@@ -10,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class AdoptionComponent implements OnInit {
     
-    public animals: Animal[] = [];
+    public animals: IAnimal[] = [];
     
     constructor(private title: Title, private router: Router, private route: ActivatedRoute, private dataService: DataService) {
     }
@@ -18,7 +18,7 @@ export class AdoptionComponent implements OnInit {
     ngOnInit() {
         this.title.setTitle("Do adopcji");
         let lastRoute = this.router.url.slice(this.router.url.lastIndexOf('/')+1);
-        if (lastRoute === "doadopcji") this.animals = this.dataService.getAllAnimalsRandom();
+        if (lastRoute === "wszystkie") this.animals = this.dataService.getAllAnimalsRandom();
         if (lastRoute === "koty") this.animals = this.dataService.getAllCats();
         if (lastRoute === "psy") this.animals = this.dataService.getAllDogs();
     }
