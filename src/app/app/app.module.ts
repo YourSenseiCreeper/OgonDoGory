@@ -11,7 +11,7 @@ import { Title } from '@angular/platform-browser';
 import { AdoptionComponent } from './adoption/adoption.component';
 import { CommonModule } from '@angular/common';
 import { AdoptionDetailsComponent } from './adoption-details/adoption-details.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CollapseModule } from "ngx-bootstrap/collapse";
 
 @NgModule({
@@ -27,6 +27,7 @@ import { CollapseModule } from "ngx-bootstrap/collapse";
     HttpClientModule,
     NgbCollapseModule,
     NgbModule,
+    FormsModule,
     ReactiveFormsModule,
     CollapseModule,
   ],

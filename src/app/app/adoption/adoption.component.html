@@ -81,7 +81,7 @@
                             <label class="col-sm-2 col-form-label">Data znalezienia od</label>
                             <div class="col-sm-3 ngb-dp-day ngb-dp-today">
                                 <div class="input-group">
-                                    <input type="text" readonly class="form-control" ngbDatepicker placeholder="yyyy-mm-dd" fromControlName="foundFrom" #dpFrom="ngbDatepicker"/>
+                                    <input type="text" class="form-control" ngbDatepicker placeholder="yyyy-mm-dd" formControlName="foundFrom" #dpFrom="ngbDatepicker"/>
                                 <div class="input-group-append">
                                     <button
                                         class="btn btn-outline-primary calendar"
@@ -117,7 +117,7 @@
                             <label class="col-sm-1 col-form-label">do</label>
                             <div class="col-sm-3 ngb-dp-day ngb-dp-today">
                                 <div class="input-group">
-                                    <input type="text" readonly class="form-control" ngbDatepicker placeholder="yyyy-mm-dd" fromControlName="foundTo" #dpTo="ngbDatepicker"/>
+                                    <input type="text" readonly class="form-control" ngbDatepicker placeholder="yyyy-mm-dd" formControlName="foundTo" #dpTo="ngbDatepicker"/>
                                 <div class="input-group-append">
                                     <button
                                         class="btn btn-outline-primary calendar"
@@ -153,8 +153,8 @@
                 <span  class="lnr">Poznaj mnie</span>
             </div> -->
                 <article class="text-left">
-                <h2>{{ animal.name }}</h2>
-                <h4>W schronisku od {{ animal.foundDate.format('MMM d, y') }}</h4>
+                <h2>{{ animal.name }}<span class="specie">{{ animal.species }}</span></h2>
+                <h4>Z nami od {{ animal.foundDate | date: 'mediumDate' }}</h4>
                 </article>
                 <img src="{{ animal.pictureUrl }}" alt="" style="object-fit: cover;">
              </div>

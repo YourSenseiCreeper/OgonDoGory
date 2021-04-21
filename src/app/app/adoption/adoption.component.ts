@@ -4,6 +4,7 @@ import { Title } from "@angular/platform-browser";
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgbDate, NgbDateStruct } from "@ng-bootstrap/ng-bootstrap";
+import * as moment from 'moment';
 
 @Component({
     selector: 'app-adoption',
@@ -18,7 +19,7 @@ export class AdoptionComponent implements OnInit {
     isCollapsed = true;
     selectedGatunek: string = '';
     gatunki: string[] = ['Pies', 'Kot'];
-    date: NgbDateStruct = new NgbDate(2021, 4, 21);
+    foundFrom: NgbDateStruct = new NgbDate(2021, 4, 21);
     
     constructor(private title: Title,
         private router: Router,
@@ -76,10 +77,12 @@ export class AdoptionComponent implements OnInit {
         }
 
         if (values.foundFrom) {
-            filteredAnimals = filteredAnimals.filter(a => a.foundDate >= values.foundFrom);
+            let date = values.foundFrom;
+            filteredAnimals = filteredAnimals.filter(a => a.foundDate > values.foundFrom);
         }
         if (values.foundTo) {
-            filteredAnimals = filteredAnimals.filter(a => a.foundDate <= values.foundTo);
+            let date = values.foundTo;
+            // filteredAnimals = filteredAnimals.filter(a => a.foundDate.isBefore(moment({year: date.year, month: date.month, day: date.day})));
         }
         
         if (values.keywords) {

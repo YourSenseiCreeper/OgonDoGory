@@ -11,7 +11,7 @@ import * as moment from 'moment';
 })
 export class AdoptionDetailsComponent implements OnInit {
     
-    public animal = new Animal(0, 'Ładowanie', 1, true, false, '', moment(), ['Linia 1', 'Linia 2'], [], '../../../assets/dog-1866530_1280.jpg');
+    public animal = new Animal(0, 'Ładowanie', 1, true, false, '', new Date(), ['Linia 1', 'Linia 2'], [], '../../../assets/dog-1866530_1280.jpg');
     
     constructor(private title: Title,
         private dataService: DataService,

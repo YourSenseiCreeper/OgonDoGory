@@ -9,8 +9,8 @@ export interface IAnimal {
   isDog: boolean;
   isCat: boolean;
   species: string;
-  foundDate: Moment;
-  adoptionDate?: Moment;
+  foundDate: Date;
+  adoptionDate?: Date;
   descriptionParagraphs: Array<string>;
   keywords: Array<string>;
   pictureUrl: string;
@@ -18,9 +18,9 @@ export interface IAnimal {
 
 export class Animal implements IAnimal {
   constructor(public id: number, public name: string, public age: number, public isDog: boolean,
-    public isCat: boolean, public species: string, public foundDate: Moment, 
+    public isCat: boolean, public species: string, public foundDate: Date, 
     public descriptionParagraphs: Array<string>, public keywords: Array<string>, public pictureUrl: string,
-    public adoptionDate?: Moment) {}
+    public adoptionDate?: Date) {}
 }
 
 export interface BlogPost {
@@ -58,14 +58,14 @@ export interface ISearchQuery {
 }
 
 const initialState: IData = {
-  animals: [new Animal(1, 'Ciapek', 2, true, false, 'Dog fracuski', moment(), ["Pierwsza linia opisu", "Druga linia opisu"], ['dog', 'ciapek', 'radosny'], '../assets/dog.jpg'),
-            {id: 2, name: 'Zeus', age: 3, isDog: true, isCat: false, species: 'Dog francuski', foundDate: moment(), descriptionParagraphs: ["Pierwsza linia opisu", "Druga linia opisu"], keywords: ['dog', 'ciapek', 'radosny'], pictureUrl: '../assets/dog-348572_1280.jpg'},
-            {id: 3, name: 'Piorun', age: 2, isDog: true, isCat: false, species: 'Dog francuski', foundDate: moment(), descriptionParagraphs: ["Pierwsza linia opisu", "Druga linia opisu"], keywords: ['dog', 'ciapek', 'radosny'], pictureUrl: '../assets/pochacz-3429043_1280.jpg'},
-            {id: 4, name: 'Naga', age: 3, isDog: true, isCat: false, species: 'Dog francuski', foundDate: moment(), descriptionParagraphs: ["Pierwsza linia opisu", "Druga linia opisu"], keywords: ['dog', 'ciapek', 'radosny'], pictureUrl: '../assets/dog-4608266_1280.jpg'},
-            {id: 5, name: 'Popiół', age: 3, isDog: false, isCat: true, species: 'Kot', foundDate: moment(), descriptionParagraphs: ["Pierwsza linia opisu", "Druga linia opisu"], keywords: ['dog', 'ciapek', 'radosny'], pictureUrl: '../assets/cats/popiół.jpg'},
-            {id: 6, name: 'Birma', age: 3, isDog: false, isCat: true, species: 'Kot', foundDate: moment(), descriptionParagraphs: ["Pierwsza linia opisu", "Druga linia opisu"], keywords: ['dog', 'ciapek', 'radosny'], pictureUrl: '../assets/cats/birma.jpg'},
-            {id: 7, name: 'Garfield', age: 3, isDog: false, isCat: true, species: 'Kot', foundDate: moment(), descriptionParagraphs: ["Pierwsza linia opisu", "Druga linia opisu"], keywords: ['dog', 'ciapek', 'radosny'], pictureUrl: '../assets/cats/garfield.jpg'},
-            {id: 8, name: 'Malachit', age: 3, isDog: false, isCat: true, species: 'Kot', foundDate: moment(), descriptionParagraphs: ["Uroczy kot o pięknych oczach", "Druga linia opisu"], keywords: ['kot', 'malachit', 'oczy'], pictureUrl: '../assets/cats/malachit.jpg'},
+  animals: [new Animal(1, 'Ciapek', 2, true, false, 'Dog fracuski', new Date(2021, 1, 13), ["Pierwsza linia opisu", "Druga linia opisu"], ['dog', 'ciapek', 'radosny'], '../assets/dog.jpg'),
+            {id: 2, name: 'Zeus', age: 3, isDog: true, isCat: false, species: 'Bernardyn', foundDate: new Date(2021, 1, 15), descriptionParagraphs: ["Pierwsza linia opisu", "Druga linia opisu"], keywords: ['dog', 'ciapek', 'radosny'], pictureUrl: '../assets/dog-348572_1280.jpg'},
+            {id: 3, name: 'Piorun', age: 2, isDog: true, isCat: false, species: 'Kundel', foundDate: new Date(2021, 2, 3), descriptionParagraphs: ["Pierwsza linia opisu", "Druga linia opisu"], keywords: ['dog', 'ciapek', 'radosny'], pictureUrl: '../assets/pochacz-3429043_1280.jpg'},
+            {id: 4, name: 'Naga', age: 3, isDog: true, isCat: false, species: 'Cheiwawa', foundDate: new Date(2021, 2, 5), descriptionParagraphs: ["Pierwsza linia opisu", "Druga linia opisu"], keywords: ['dog', 'ciapek', 'radosny'], pictureUrl: '../assets/dog-4608266_1280.jpg'},
+            {id: 5, name: 'Popiół', age: 3, isDog: false, isCat: true, species: 'Kot perski', foundDate: new Date(2021, 3, 11), descriptionParagraphs: ["Pierwsza linia opisu", "Druga linia opisu"], keywords: ['dog', 'ciapek', 'radosny'], pictureUrl: '../assets/cats/popiół.jpg'},
+            // {id: 6, name: 'Birma', age: 3, isDog: false, isCat: true, species: 'Kot', foundDate: moment({year: 2021, month: 3, day: 13}), descriptionParagraphs: ["Pierwsza linia opisu", "Druga linia opisu"], keywords: ['dog', 'ciapek', 'radosny'], pictureUrl: '../assets/cats/birma.jpg'},
+            // {id: 7, name: 'Garfield', age: 3, isDog: false, isCat: true, species: 'Kot', foundDate: moment({year: 2021, month: 3, day: 17}), descriptionParagraphs: ["Pierwsza linia opisu", "Druga linia opisu"], keywords: ['dog', 'ciapek', 'radosny'], pictureUrl: '../assets/cats/garfield.jpg'},
+            // {id: 8, name: 'Malachit', age: 3, isDog: false, isCat: true, species: 'Kot', foundDate: moment({year: 2021, month: 4, day: 1}), descriptionParagraphs: ["Uroczy kot o pięknych oczach", "Druga linia opisu"], keywords: ['kot', 'malachit', 'oczy'], pictureUrl: '../assets/cats/malachit.jpg'},
           ],
   posts: [{title: 'Pierwszy post', publicationDate: moment(), author: 'Admin', paragraphs: ['Pierwszy akapit', 'Drugi akapit']}],
   dogSpecies: ['Dog francuski'],
@@ -90,7 +90,7 @@ export class DataService {
    }
 
    adoptAnimal(animal: IAnimal) {
-     animal.adoptionDate = moment();
+     animal.adoptionDate = new Date();
      let originalAnimalExcluded = this.state.animals.filter(a => a.keywords !== animal.keywords);
      originalAnimalExcluded.push(animal);
    }
