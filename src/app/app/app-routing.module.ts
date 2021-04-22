@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AdoptionComponent } from './adoption/adoption.component';
 import { AdoptionDetailsComponent } from './adoption-details/adoption-details.component';
+import { AlarmTelephoneComponent } from './alarm-telephone/alarm-telephone.component';
 
 @NgModule({
   imports: [
@@ -24,6 +25,9 @@ import { AdoptionDetailsComponent } from './adoption-details/adoption-details.co
               { path: "koty", component: AdoptionComponent },
               { path: "wszystkie", component: AdoptionComponent }
             ]
+          },
+          {
+            path: "telefon", component: AlarmTelephoneComponent
           }
         ]
       },

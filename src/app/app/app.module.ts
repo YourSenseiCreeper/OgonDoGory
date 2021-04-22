@@ -1,3 +1,5 @@
+import { AdoptionGalleryComponent } from './adoption-gallery/adoption-gallery.component';
+import { AlarmTelephoneComponent } from './alarm-telephone/alarm-telephone.component';
 import { DataService } from './../data.service';
 import { HomepageComponent } from './homepage/homepage.component';
 import { NgModule } from '@angular/core';
@@ -20,6 +22,8 @@ import { CollapseModule } from "ngx-bootstrap/collapse";
     HomepageComponent,
     AdoptionComponent,
     AdoptionDetailsComponent,
+    AlarmTelephoneComponent,
+    AdoptionGalleryComponent,
   ],
   imports: [
     CommonModule,
