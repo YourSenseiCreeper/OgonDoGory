@@ -2,12 +2,18 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { AdminDashboardComponent } from './dashboard/dashboard.component';
+import { AdminComponentComponent } from './admin.component';
 
 @NgModule({
   imports: [
     RouterModule.forChild([
       {
-        path: "", component: AdminDashboardComponent,
+        path: "", component: AdminComponentComponent,
+        children: [
+          {
+            path: "dashboard", component: AdminDashboardComponent,
+          },
+        ]
       },
       {
         path: "login", component: LoginComponent

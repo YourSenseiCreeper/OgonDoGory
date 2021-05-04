@@ -10,7 +10,7 @@ const routes: Routes = [
     {
         path: 'admin',
         loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule), // Lazy load app module
-        data: { preload: false }
+        data: { preload: true }
     }
 ];
 

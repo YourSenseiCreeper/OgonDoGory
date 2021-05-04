@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
     login() {
         let raw = this.loginForm.getRawValue();
         if (this.dataService.hasUserWithLoginAndPassword(raw.login, raw.password)) {
-            this.router.navigate(['admin/']);
+            this.router.navigate(['admin/dashboard']);
         } else {
             this.errorMessage = "Niepoprawne dane logowania!";
         }
