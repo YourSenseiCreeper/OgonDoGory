@@ -39,7 +39,12 @@ export interface MailEntry {
   textParagraphs: Array<string>;
 }
 
+export class User {
+  constructor(public id: number, public login: string, public password: string) {}
+}
+
 export interface IData {
+  users: User[];
   animals: Animal[];
   posts: Array<BlogPost>;
   mailbox: MailEntry[];
@@ -58,6 +63,7 @@ export interface ISearchQuery {
 }
 
 const initialState: IData = {
+  users: [new User(1, 'admin', '123qwe')],
   animals: [new Animal(1, 'Ciapek', 2, true, false, 'Dog fracuski', new Date(2021, 1, 13), ["Pierwsza linia opisu", "Druga linia opisu"], ['dog', 'ciapek', 'radosny'], '../assets/dog.jpg'),
             {id: 2, name: 'Zeus', age: 3, isDog: true, isCat: false, species: 'Bernardyn', foundDate: new Date(2021, 1, 15), descriptionParagraphs: ["Bernardyn", "Druga linia opisu"], keywords: ['dog', 'ciapek', 'radosny'], pictureUrl: '../assets/dog-348572_1280.jpg'},
             {id: 3, name: 'Piorun', age: 2, isDog: true, isCat: false, species: 'Kundel', foundDate: new Date(2021, 2, 3), descriptionParagraphs: ["Pierwsza linia opisu", "Druga linia opisu"], keywords: ['dog', 'ciapek', 'radosny'], pictureUrl: '../assets/pochacz-3429043_1280.jpg'},
@@ -143,6 +149,10 @@ export class DataService {
 
   readMail(mailIndex: number) {
     this.state.mailbox[mailIndex].isOpened = true;
+  }
+
+  hasUserWithLoginAndPassword(login: string, password: string) {
+    return this.state.users.some(u => u.login === login && u.password === password);
   }
 
   /**
