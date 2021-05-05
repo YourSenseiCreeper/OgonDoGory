@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import * as moment from 'moment';
 import { Moment } from 'moment';
 
 export interface IAnimal {
@@ -67,12 +66,12 @@ const initialState: IData = {
   users: [new User(1, 'admin', '123qwe')],
   animals: [new Animal(1, 'Ciapek', 2, true, false, 'Dog fracuski', new Date(2021, 1, 13), ["Pierwsza linia opisu", "Druga linia opisu"], ['dog', 'ciapek', 'radosny'], '../assets/dog.jpg'),
             {id: 2, name: 'Zeus', age: 3, isDog: true, isCat: false, species: 'Bernardyn', foundDate: new Date(2021, 1, 15), descriptionParagraphs: ["Bernardyn", "Druga linia opisu"], keywords: ['dog', 'ciapek', 'radosny'], pictureUrl: '../assets/dog-348572_1280.jpg'},
-            {id: 3, name: 'Piorun', age: 2, isDog: true, isCat: false, species: 'Kundel', foundDate: new Date(2021, 2, 3), descriptionParagraphs: ["Pierwsza linia opisu", "Druga linia opisu"], keywords: ['dog', 'ciapek', 'radosny'], pictureUrl: '../assets/pochacz-3429043_1280.jpg'},
+            {id: 3, name: 'Piorun', age: 2, isDog: true, isCat: false, species: 'Mieszaniec', foundDate: new Date(2021, 2, 3), descriptionParagraphs: ["Pierwsza linia opisu", "Druga linia opisu"], keywords: ['dog', 'ciapek', 'radosny'], pictureUrl: '../assets/pochacz-3429043_1280.jpg'},
             {id: 4, name: 'Naga', age: 3, isDog: true, isCat: false, species: 'Cheiwawa', foundDate: new Date(2021, 2, 5), descriptionParagraphs: ["Pierwsza linia opisu", "Druga linia opisu"], keywords: ['dog', 'ciapek', 'radosny'], pictureUrl: '../assets/dog-4608266_1280.jpg'},
             {id: 5, name: 'Popiół', age: 3, isDog: false, isCat: true, species: 'Kot perski', foundDate: new Date(2021, 3, 11), descriptionParagraphs: ["Pierwsza linia opisu", "Druga linia opisu"], keywords: ['dog', 'ciapek', 'radosny'], pictureUrl: '../assets/cats/popiół.jpg'},
-            // {id: 6, name: 'Birma', age: 3, isDog: false, isCat: true, species: 'Kot', foundDate: moment({year: 2021, month: 3, day: 13}), descriptionParagraphs: ["Pierwsza linia opisu", "Druga linia opisu"], keywords: ['dog', 'ciapek', 'radosny'], pictureUrl: '../assets/cats/birma.jpg'},
-            // {id: 7, name: 'Garfield', age: 3, isDog: false, isCat: true, species: 'Kot', foundDate: moment({year: 2021, month: 3, day: 17}), descriptionParagraphs: ["Pierwsza linia opisu", "Druga linia opisu"], keywords: ['dog', 'ciapek', 'radosny'], pictureUrl: '../assets/cats/garfield.jpg'},
-            // {id: 8, name: 'Malachit', age: 3, isDog: false, isCat: true, species: 'Kot', foundDate: moment({year: 2021, month: 4, day: 1}), descriptionParagraphs: ["Uroczy kot o pięknych oczach", "Druga linia opisu"], keywords: ['kot', 'malachit', 'oczy'], pictureUrl: '../assets/cats/malachit.jpg'},
+            {id: 6, name: 'Birma', age: 3, isDog: false, isCat: true, species: 'Kot', foundDate: new Date(2021, 3, 13), descriptionParagraphs: ["Pierwsza linia opisu", "Druga linia opisu"], keywords: ['dog', 'ciapek', 'radosny'], pictureUrl: '../assets/cats/birma.jpg'},
+            {id: 7, name: 'Garfield', age: 3, isDog: false, isCat: true, species: 'Kot', foundDate: new Date(2021, 3, 17), descriptionParagraphs: ["Pierwsza linia opisu", "Druga linia opisu"], keywords: ['dog', 'ciapek', 'radosny'], pictureUrl: '../assets/cats/garfield.jpg'},
+            {id: 8, name: 'Malachit', age: 3, isDog: false, isCat: true, species: 'Kot', foundDate: new Date(2021, 4, 1), descriptionParagraphs: ["Uroczy kot o pięknych oczach", "Druga linia opisu"], keywords: ['kot', 'malachit', 'oczy'], pictureUrl: '../assets/cats/malachit.jpg'},
           ],
   posts: [new BlogPost('Pierwszy post', 'Admin', new Date(2020, 12, 15), ['Pierwszy akapit', 'Drugi akapit']),
     new BlogPost('Wesołych świąt', 'Admin', new Date(2020, 12, 23), ['Pierwszy akapit', 'Drugi akapit']),
@@ -80,8 +79,8 @@ const initialState: IData = {
     new BlogPost('Problmy noworoczne psów', 'Admin', new Date(2021, 1, 5), ['Pierwszy akapit', 'Drugi akapit']),
     new BlogPost('Porzucone "prezenty"', 'Admin', new Date(2021, 2, 7), ['Pierwszy akapit', 'Drugi akapit']),
   ],
-  dogSpecies: ['Dog francuski'],
-  catSpecies: ['Kot perski'],
+  dogSpecies: ['Dog francuski', 'Bernardyn', 'Cheiwawa', 'Mieszaniec', 'Labrador', 'Husky syberyjski', 'Golden retriever', 'Owczarek niemiecki'],
+  catSpecies: ['Kot perski', 'Brytyjski krótkowłosy', 'Maine Coon', 'Amerykański krótkowłosy', 'Kot sfinks', 'Kot syberyjski'],
   mailbox: [new MailEntry('Testowy mail', 'hello@ogondogory.pl', 'hello@ogondogory.pl', new Date(2020, 12, 15), false, ['Hello', 'Pierwszy mail!']),
     new MailEntry('Sucha karma dla schroniska', 'marlena031@wp.pl', 'hello@ogondogory.pl', new Date(2020, 12, 29), false, ['Dzień dobry', 'Mam trochę suchej karmy dla psów']),
     new MailEntry('RE: Sucha karma dla schroniska', 'marlena031@wp.pl', 'hello@ogondogory.pl', new Date(2021, 1, 4), false, ['Hello', 'Pierwszy mail!']),

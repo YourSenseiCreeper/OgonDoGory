@@ -140,7 +140,13 @@ h1 {
 	opacity: 1;
 }
 
+$main-theme: rgb(101, 207, 101);
+$main-theme-background: rgb(78, 158, 78);
+
 .collapsed-filters {
 	padding: 20px;
-	background-color: cornsilk;
+	background-color: $main-theme-background;
+	border: 5px solid $main-theme;
+    border-radius: 10px;
+	box-shadow: 0 8px 15px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.14);
 }

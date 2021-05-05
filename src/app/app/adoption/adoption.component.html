@@ -40,7 +40,9 @@
           <span *ngIf="isCollapsed">Pokaż Filtry</span>
           <span *ngIf="!isCollapsed">Ukryj Filtry</span>
     </button>
+
     <h3>Znaleziono {{ presentedAnimals.length }} czworonogów</h3>
+    
     <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed" class="collapsed-filters">
         <div class="row">
 
