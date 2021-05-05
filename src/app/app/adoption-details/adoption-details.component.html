@@ -1,7 +1,25 @@
-<!-- <img src="../../assets/homepage_bg.jpg" class="img-fluid" alt="Schronisko" style="height: 300px;"> -->
-<div>
-    <!-- <img src="{{ animal.imageUrl }} "> -->
-    <h1>{{ animal.name }}</h1>
+<div class="row">
+    <!-- Zwierzak -->
+    <div class="col">
+        <div class="row"><div class="col">
+            <img [src]="animal.pictureUrl" style="max-width: 100%;">
+        </div></div>
+        <div class="row align-items-center">
+            <div class="col">
+                <h2>{{ animal.name }}</h2>
+            </div>
+            <div class="col">
+                <span style="float: right">Z nami od {{ animal.foundDate | date: 'longDate' }}</span>
+            </div>
+        </div>
+    </div>
+    <!-- Opis -->
+    <div class="col">
+        <h1>O zwierzęciu</h1>
+        <div class="p-2" *ngFor="let paragraph of animal.descriptionParagraphs">
+            {{ paragraph }}
+        </div>
+    </div>
 </div>
 
   

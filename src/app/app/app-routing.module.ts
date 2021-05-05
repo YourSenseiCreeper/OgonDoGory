@@ -18,13 +18,13 @@ import { AlarmTelephoneComponent } from './alarm-telephone/alarm-telephone.compo
           {
             path: "doadopcji", component: AdoptionComponent,
             children: [
-              {
-                path: "{id}", component: AdoptionDetailsComponent,
-              },
               { path: "psy", component: AdoptionComponent },
               { path: "koty", component: AdoptionComponent },
               { path: "wszystkie", component: AdoptionComponent }
             ]
+          },
+          {
+            path: "doadopcji/:id", component: AdoptionDetailsComponent,
           },
           {
             path: "telefon", component: AlarmTelephoneComponent
