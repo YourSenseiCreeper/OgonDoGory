@@ -1,3 +1,4 @@
+import { PostDetailsComponent } from './post-details/post-details.component';
 import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { NgModule } from '@angular/core';
@@ -25,6 +26,9 @@ import { AlarmTelephoneComponent } from './alarm-telephone/alarm-telephone.compo
           },
           {
             path: "doadopcji/:id", component: AdoptionDetailsComponent,
+          },
+          {
+            path: "blog/:id", component: PostDetailsComponent,
           },
           {
             path: "telefon", component: AlarmTelephoneComponent

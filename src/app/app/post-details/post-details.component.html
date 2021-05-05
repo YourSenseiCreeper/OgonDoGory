@@ -1,0 +1,15 @@
+<div class="text-center blogpost">
+    <h2> {{ post.title }}</h2>
+</div>
+<div class="row justify-content-around my-4">
+    <div class="col-8">
+        Autor: {{ post.author }}
+    </div>
+    <div class="col-4 ml-auto">
+        Opublikowano {{ post.publicationDate | date: 'longDate' }}
+    </div>
+</div>
+<div class="row post-background mx-1" *ngFor="let paragraph of post.paragraphs">
+    {{ paragraph }}
+
+</div>

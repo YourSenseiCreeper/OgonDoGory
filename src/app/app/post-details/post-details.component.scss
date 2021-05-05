@@ -1,0 +1,20 @@
+$main-theme: rgb(101, 207, 101);
+$main-theme-hover: rgb(107, 230, 107);
+$main-theme-background: rgb(78, 158, 78);
+
+.blogpost {
+    background-color: $main-theme;
+    border: 5px solid $main-theme;
+    border-radius: 7px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.14);
+}
+
+.post-title {
+    background-color: $main-theme-hover;
+}
+
+.post-background {
+    background-color: $main-theme;
+    padding: 0.5rem 1rem; 
+    font-size: 15pt;
+}

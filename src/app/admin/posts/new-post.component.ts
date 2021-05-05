@@ -38,7 +38,7 @@ export class NewPostComponent implements OnInit {
         let raw = this.postForm.getRawValue();
         let paragraphs = raw.text.split('\n');
         if (raw.title !== '' && raw.publicationDate !== '' && raw.text !== '') {
-            this.dataService.addBlogPost(new BlogPost(raw.title, 'Admin', new Date(raw.publicationDate.year, raw.publicationDate.month, raw.publicationDate.day), paragraphs));
+            this.dataService.addBlogPost(new BlogPost(0, raw.title, 'Admin', new Date(raw.publicationDate.year, raw.publicationDate.month, raw.publicationDate.day), paragraphs));
             this.router.navigate(['admin/dashboard']);
         } else {
             this.errorMessage = "Brakuje tytułu lub adresata!";

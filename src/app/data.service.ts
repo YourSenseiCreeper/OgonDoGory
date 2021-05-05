@@ -23,7 +23,8 @@ export class Animal implements IAnimal {
 }
 
 export class BlogPost {
-  constructor(public title: string,
+  constructor(public id: number,
+    public title: string,
     public author: string,
     public publicationDate: Date,
     public paragraphs: Array<string>) {}
@@ -74,11 +75,11 @@ const initialState: IData = {
             {id: 7, name: 'Garfield', age: 3, isDog: false, isCat: true, species: 'Kot', foundDate: new Date(2021, 3, 17), descriptionParagraphs: ["Pierwsza linia opisu", "Druga linia opisu"], keywords: ['dog', 'ciapek', 'radosny'], pictureUrl: '../assets/cats/garfield.jpg'},
             {id: 8, name: 'Malachit', age: 3, isDog: false, isCat: true, species: 'Kot', foundDate: new Date(2021, 4, 1), descriptionParagraphs: ["Uroczy kot o pięknych oczach", "Druga linia opisu"], keywords: ['kot', 'malachit', 'oczy'], pictureUrl: '../assets/cats/malachit.jpg'},
           ],
-  posts: [new BlogPost('Pierwszy post', 'Admin', new Date(2020, 12, 15), ['Pierwszy akapit', 'Drugi akapit']),
-    new BlogPost('Wesołych świąt', 'Admin', new Date(2020, 12, 23), ['Pierwszy akapit', 'Drugi akapit']),
-    new BlogPost('Nowy rok i ogon do góry', 'Admin', new Date(2021, 1, 3), ['Pierwszy akapit', 'Drugi akapit']),
-    new BlogPost('Problmy noworoczne psów', 'Admin', new Date(2021, 1, 5), ['Pierwszy akapit', 'Drugi akapit']),
-    new BlogPost('Porzucone "prezenty"', 'Admin', new Date(2021, 2, 7), ['Pierwszy akapit', 'Drugi akapit']),
+  posts: [new BlogPost(1, 'Pierwszy post', 'Admin', new Date(2020, 12, 15), ['Pierwszy akapit', 'Drugi akapit']),
+    new BlogPost(2, 'Wesołych świąt', 'Admin', new Date(2020, 12, 23), ['Pierwszy akapit', 'Drugi akapit']),
+    new BlogPost(3, 'Nowy rok i ogon do góry', 'Admin', new Date(2021, 1, 3), ['Pierwszy akapit', 'Drugi akapit']),
+    new BlogPost(4, 'Problmy noworoczne psów', 'Admin', new Date(2021, 1, 5), ['Pierwszy akapit', 'Drugi akapit']),
+    new BlogPost(5, 'Porzucone "prezenty"', 'Admin', new Date(2021, 2, 7), ['Pierwszy akapit', 'Drugi akapit']),
   ],
   dogSpecies: ['Dog francuski', 'Bernardyn', 'Cheiwawa', 'Mieszaniec', 'Labrador', 'Husky syberyjski', 'Golden retriever', 'Owczarek niemiecki'],
   catSpecies: ['Kot perski', 'Brytyjski krótkowłosy', 'Maine Coon', 'Amerykański krótkowłosy', 'Kot sfinks', 'Kot syberyjski'],
@@ -99,8 +100,8 @@ export class DataService {
   constructor() {}
 
    get(id: number) {
-     let result = this.state.animals.find(a => a.id === id);
-    return result as Animal;
+      let result = this.state.animals.find(a => a.id === id);
+      return result as Animal;
    }
 
    addAnimal(animal: Animal) {
@@ -113,9 +114,9 @@ export class DataService {
      originalAnimalExcluded.push(animal);
    }
 
-   searchAnimal(searchQuery: ISearchQuery): Array<IAnimal> {
-
-    return [];
+   getPost(id: number) {
+    let result = this.state.posts.find(a => a.id === id);
+    return result as BlogPost;
    }
 
    getMailbox(): Array<MailEntry> {
@@ -168,6 +169,7 @@ export class DataService {
   }
 
   addBlogPost(post: BlogPost) {
+    post.id = Math.max(...this.state.posts.map(p => p.id)) + 1;
     this.state.posts.push(post);
   }
 

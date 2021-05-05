@@ -15,6 +15,7 @@ import { CommonModule } from '@angular/common';
 import { AdoptionDetailsComponent } from './adoption-details/adoption-details.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CollapseModule } from "ngx-bootstrap/collapse";
+import { PostDetailsComponent } from './post-details/post-details.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { CollapseModule } from "ngx-bootstrap/collapse";
     AdoptionDetailsComponent,
     AlarmTelephoneComponent,
     AdoptionGalleryComponent,
+    PostDetailsComponent,
   ],
   imports: [
     CommonModule,
