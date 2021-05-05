@@ -1,0 +1,39 @@
+<div class="new-mail-box">
+    <div class="row">
+        <div class="col">
+            <h1>Słownik ras</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h2>Psy</h2>
+            <form [formGroup]="dogSpeciesForm" class="form-inline">
+                <div class="form-group mb-2">
+                    <input formControlName="speciesName" type="text" class="form-control" placeholder="Nazwa rasy" autofocus="">
+                </div>
+                <button class="btn btn-primary mx-sm-3 mb-2" type="submit" (click)="addDogSpecies()">Dodaj rasę</button>
+                <div style="color: red">
+                    {{ errorMessage }}
+                </div>
+            </form>
+            <div *ngFor="let dog of dogSpecies" class="p-1 mb-2" style="width: 100%; background-color: rgb(101, 207, 101); border: 2px solid white">
+                {{ dog }}
+            </div>
+        </div>
+        <div class="col">
+            <h2>Koty</h2>
+            <form [formGroup]="catSpeciesForm" class="form-inline">
+                <div class="form-group mb-2">
+                    <input formControlName="speciesName" type="text" class="form-control" placeholder="Nazwa rasy" autofocus="">
+                </div>
+                <button class="btn btn-primary mx-sm-3 mb-2" type="submit" (click)="addCatSpecies()">Dodaj rasę</button>
+                <div style="color: red">
+                    {{ errorMessage }}
+                </div>
+            </form>
+            <div *ngFor="let cat of catSpecies" class="p-1 mb-2" style="width: 100%; background-color: rgb(101, 207, 101); border: 2px solid white">
+                {{ cat }}
+            </div>
+        </div>
+    </div>
+</div>

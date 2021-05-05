@@ -3,6 +3,8 @@ import { RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { AdminDashboardComponent } from './dashboard/dashboard.component';
 import { AdminComponentComponent } from './admin.component';
+import { NewMailComponent } from './mails/new-mail.component';
+import { SpeciesDictionaryComponent } from './species-dictionary/species-dictionary.component';
 
 @NgModule({
   imports: [
@@ -13,6 +15,17 @@ import { AdminComponentComponent } from './admin.component';
           {
             path: "dashboard", component: AdminDashboardComponent,
           },
+          {
+            path: "mails",
+            children: [
+              {
+                path: "new", component: NewMailComponent,
+              },
+            ]
+          },
+          {
+            path: 'species', component: SpeciesDictionaryComponent
+          }
         ]
       },
       {

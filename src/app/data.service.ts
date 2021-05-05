@@ -82,13 +82,13 @@ const initialState: IData = {
   ],
   dogSpecies: ['Dog francuski'],
   catSpecies: ['Kot perski'],
-  mailbox: [new MailEntry('Testowy mail', 'hello@ogondogory.pl', 'hello@ogondogory.pl', new Date(), false, ['Hello', 'Pierwszy mail!']),
-    new MailEntry('Sucha karma dla schroniska', 'marlena031@wp.pl', 'hello@ogondogory.pl', new Date(), false, ['Dzień dobry', 'Mam trochę suchej karmy dla psów']),
-    new MailEntry('RE: Sucha karma dla schroniska', 'marlena031@wp.pl', 'hello@ogondogory.pl', new Date(), false, ['Hello', 'Pierwszy mail!']),
-    new MailEntry('Zagubiony pies, okolice schroniska', 'mieciuwarch67@o2.pl', 'hello@ogondogory.pl', new Date(), false, ['Hello', 'Pierwszy mail!']),
-    new MailEntry('Jakiś mail', 'kontakt@adriatyk.pl', 'hello@ogondogory.pl', new Date(), false, ['Hello', 'Pierwszy mail!']),
-    new MailEntry('Sample text', 'sample@text.pl', 'hello@ogondogory.pl', new Date(), false, ['Hello', 'Pierwszy mail!']),
-    new MailEntry('Nikt go nie znajdzie', 'witam@porywacz.pl', 'hello@ogondogory.pl', new Date(), false, ['Hello', 'Pierwszy mail!'])]
+  mailbox: [new MailEntry('Testowy mail', 'hello@ogondogory.pl', 'hello@ogondogory.pl', new Date(2020, 12, 15), false, ['Hello', 'Pierwszy mail!']),
+    new MailEntry('Sucha karma dla schroniska', 'marlena031@wp.pl', 'hello@ogondogory.pl', new Date(2020, 12, 29), false, ['Dzień dobry', 'Mam trochę suchej karmy dla psów']),
+    new MailEntry('RE: Sucha karma dla schroniska', 'marlena031@wp.pl', 'hello@ogondogory.pl', new Date(2021, 1, 4), false, ['Hello', 'Pierwszy mail!']),
+    new MailEntry('Zagubiony pies, okolice schroniska', 'mieciuwarch67@o2.pl', 'hello@ogondogory.pl', new Date(2021, 1, 11), false, ['Hello', 'Pierwszy mail!']),
+    new MailEntry('Jakiś mail', 'kontakt@adriatyk.pl', 'hello@ogondogory.pl', new Date(2021, 2, 16), false, ['Hello', 'Pierwszy mail!']),
+    new MailEntry('Sample text', 'sample@text.pl', 'hello@ogondogory.pl', new Date(2021, 2, 18), false, ['Hello', 'Pierwszy mail!']),
+    new MailEntry('Nikt go nie znajdzie', 'witam@porywacz.pl', 'hello@ogondogory.pl', new Date(2021, 3, 6), false, ['Hello', 'Pierwszy mail!'])]
 }
 
 @Injectable({
@@ -119,7 +119,7 @@ export class DataService {
    }
 
    getMailbox(): Array<MailEntry> {
-     return this.state.mailbox;
+     return this.state.mailbox.sort((a, b) => a.sendDate < b.sendDate ? 1 : -1);
    }
 
    getAllDogs(): Array<IAnimal> {

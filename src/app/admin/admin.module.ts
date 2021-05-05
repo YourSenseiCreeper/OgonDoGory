@@ -7,12 +7,16 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AdminComponentComponent } from './admin.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { NewMailComponent } from './mails/new-mail.component';
+import { SpeciesDictionaryComponent } from './species-dictionary/species-dictionary.component';
 
 @NgModule({
   declarations: [
     AdminDashboardComponent,
     LoginComponent,
     AdminComponentComponent,
+    NewMailComponent,
+    SpeciesDictionaryComponent
   ],
   imports: [
     CommonModule,
