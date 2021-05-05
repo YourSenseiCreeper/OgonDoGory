@@ -1,19 +1,23 @@
 <div class="row" style="padding-top: 50px; padding-left: 40px; padding-right: 40px">
     <!-- Animals search & Add -->
-    <div class="col-7" style="background-color:lightgreen; padding-top: 100px;">
-        <div class="row align-items-center">
-            <div class="col-7" style="background-color: lightpink;">
-                <h2>Wszystkie zwierzęta</h2>
+    <div class="col-7" style="padding-top: 100px;">
+        <div class="section my-2">
+            <div class="row align-items-center justify-content-around">
+                <div class="col-7" style="padding-left: 20px;">
+                    <h2>Wszystkie zwierzęta</h2>
+                </div>
+                <div class="col-5">
+                    <button class="btn btn-primary" routerLink="/admin/mails/new">Dodaj zwierzę</button>
+                    <button class="btn btn-secondary mx-1" routerLink="/admin/species">Słownik ras</button>
+                </div>
             </div>
-            <div class="col-5 p-1" style="background-color: lightslategrey;">
-                <button class="btn btn-primary" routerLink="/admin/mails/new">Dodaj zwierzę</button>
-                <button class="btn btn-secondary mx-1" routerLink="/admin/species">Słownik ras</button>
+            <div class="row">
+                <div class="col">
+                    <input type="text" placeholder="Szukaj po imieniu lub opisie" class="form-control" name="anyText" id="anyText"/>
+                </div>
             </div>
         </div>
-        <div class="row" style="background-color: maroon;">
-            <input type="text" placeholder="Szukaj po imieniu lub opisie" class="form-control" name="anyText" id="anyText"/>
-        </div>
-        <div id="animals" class="row" style="background-color: magenta;">
+        <div id="animals" class="row" style="padding-left: 100px;">
             <div class="container text-center">
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 container_foto" *ngFor="let animal of presentedAnimals" routerLink="./{{ animal.id }}">
@@ -28,79 +32,82 @@
         </div>
     </div>
     <!-- Mail & Posts -->
-    <div class="col-5" style="background-color: lightpink">
+    <div class="col-5">
         <!-- Emails -->
-        <div class="row align-items-center" style="background-color: mistyrose">
-            <div class="col-7" style="background-color: olivedrab;">
-                <h2>Poczta</h2>
+        <div class="section my-3">
+            <div class="row align-items-center">
+                <div class="col-6" style="padding-left: 20px">
+                    <h2>Poczta</h2>
+                </div>
+                <div class="col-5">
+                    <div class="row justify-content-around">
+                        <button class="btn btn-primary" routerLink="/admin/mails/new">Nowy mail</button>
+                        <button class="btn btn-secondary">Szczegóły</button>
+                    </div>
+                </div>
             </div>
-            <div class="col-5" style="background-color: lightslategrey;">
-                <div class="row justify-content-around">
-                    <button class="btn btn-primary" routerLink="/admin/mails/new">Nowy mail</button>
-                    <button class="btn btn-secondary">Szczegóły</button>
+            <div class="row">
+                <div class="col " style="height: 275px;">
+                    <div class="row align-items-center justify-content-center entry" 
+                        *ngFor="let mail of mails | slice: (mailsPage - 1) * mailsPageSize:mailsPage * mailsPageSize">
+                        <div class="col align-middle">
+                            <div class="row">
+                                <div class="col" style="font-size: 20px;">
+                                    {{ mail.title }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col" style="font-size: 11px;">
+                                    Od: {{ mail.authorEmail }}, {{ mail.sendDate | date: 'mediumDate' }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-auto p-2" style="background-color: mediumpurple; cursor: pointer" routerLink="admin/mails/{ mail.id }">
+                            <i class="far fa-envelope-open" style="font-size: 25px;"></i>
+                        </div>
+                    </div>
+                    <div class="row justify-content-end p-1">
+                        <ngb-pagination [collectionSize]="mails.length" [(page)]="mailsPage" [pageSize]="mailsPageSize">
+                        </ngb-pagination>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col" style="height: 275px;">
-                <div class="row align-items-center" 
-                    *ngFor="let mail of mails | slice: (mailsPage - 1) * mailsPageSize:mailsPage * mailsPageSize" 
-                    style="background-color: rgb(101, 207, 101); margin-bottom: 5px; border: 2px solid wheat">
-                    <div class="col align-middle">
-                        <div class="row">
-                            <div class="col" style="font-size: 20px;">
-                                {{ mail.title }}
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col" style="font-size: 11px;">
-                                Od: {{ mail.authorEmail }}, {{ mail.sendDate | date: 'mediumDate' }}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="w-auto p-2" style="background-color: mediumpurple; cursor: pointer" routerLink="admin/mails/{ mail.id }">
-                        <i class="far fa-envelope-open" style="font-size: 25px;"></i>
-                    </div>
+        
+        <!-- Articles -->
+        <div class="section my-3">
+            <div class="row align-items-center">
+                <div class="col">
+                    <h2>Artykuły</h2>
                 </div>
-                <div class="row justify-content-end p-1">
-                    <ngb-pagination [collectionSize]="mails.length" [(page)]="mailsPage" [pageSize]="mailsPageSize">
-                    </ngb-pagination>
+                <div class="col-2 p-1">
+                    <button class="btn btn-primary" routerLink="/admin/posts/new">Dodaj</button>
                 </div>
             </div>
-        </div>
-
-        <div class="row align-items-center" style="background-color: mediumslateblue;">
-            <div class="col">
-                <h2>Artykuły</h2>
-            </div>
-            <div class="col-2 p-1" style="background-color: orchid;">
-                <button class="btn btn-primary" routerLink="/admin/posts/new">Dodaj</button>
-            </div>
-        </div>
-        <div class="row" style="background-color: orange;">
-            <div class="col" style="height: 250px;">
-                <div class="row align-items-center" 
-                    *ngFor="let article of articles | slice: (articlesPage - 1) * articlesPageSize:articlesPage * articlesPageSize" 
-                    style="background-color: rgb(101, 207, 101); margin-bottom: 5px; border: 2px solid wheat">
-                    <div class="col align-middle">
-                        <div class="row">
-                            <div class="col" style="font-size: 20px;">
-                                {{ article.title }}
+            <div class="row">
+                <div class="col" style="height: 275px;">
+                    <div class="row align-items-center entry" 
+                        *ngFor="let article of articles | slice: (articlesPage - 1) * articlesPageSize:articlesPage * articlesPageSize">
+                        <div class="col align-middle">
+                            <div class="row">
+                                <div class="col" style="font-size: 20px;">
+                                    {{ article.title }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col" style="font-size: 11px;">
+                                    Dodano {{ article.publicationDate | date: 'mediumDate' }}
+                                </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col" style="font-size: 11px;">
-                                Dodano {{ article.publicationDate | date: 'mediumDate' }}
-                            </div>
+                        <div class="w-auto p-2" style="background-color: mediumpurple; cursor: pointer" routerLink="admin/articles/{ mail.id }">
+                            <i class="far fa-edit" style="font-size: 25px;"></i>
                         </div>
                     </div>
-                    <div class="w-auto p-2" style="background-color: mediumpurple; cursor: pointer" routerLink="admin/articles/{ mail.id }">
-                        <i class="far fa-edit" style="font-size: 25px;"></i>
+                    <div class="row justify-content-end p-1">
+                        <ngb-pagination [collectionSize]="articles.length" [(page)]="articlesPage" [pageSize]="articlesPageSize">
+                        </ngb-pagination>
                     </div>
-                </div>
-                <div class="row justify-content-end p-1">
-                    <ngb-pagination [collectionSize]="articles.length" [(page)]="articlesPage" [pageSize]="articlesPageSize">
-                    </ngb-pagination>
                 </div>
             </div>
         </div>

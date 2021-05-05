@@ -1,3 +1,7 @@
+$main-theme: rgb(101, 207, 101);
+$main-theme-hover: rgb(107, 230, 107);
+$main-theme-background: rgb(78, 158, 78);
+
 #animals .container {
     padding: 0px 15px !important;
 }
@@ -5,4 +9,18 @@
 .container_foto {
     width: 200px;
     height: 200px;
+}
+
+.section {
+    background-color: $main-theme;
+    border: 5px solid $main-theme;
+    border-radius: 3px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.14);
+}
+
+.entry {
+    background-color: $main-theme-hover;
+    margin-bottom: 5px;
+    border: 2px solid $main-theme;
+    width: 90%;
 }
