@@ -167,6 +167,10 @@ export class DataService {
     return this.state.users.some(u => u.login === login && u.password === password);
   }
 
+  addBlogPost(post: BlogPost) {
+    this.state.posts.push(post);
+  }
+
   /**
  * Shuffles array in place. ES6 version
  * @param {Array} a items An array containing the items.

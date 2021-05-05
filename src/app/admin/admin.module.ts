@@ -9,6 +9,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NewMailComponent } from './mails/new-mail.component';
 import { SpeciesDictionaryComponent } from './species-dictionary/species-dictionary.component';
+import { NewPostComponent } from './posts/new-post.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { SpeciesDictionaryComponent } from './species-dictionary/species-diction
     LoginComponent,
     AdminComponentComponent,
     NewMailComponent,
-    SpeciesDictionaryComponent
+    SpeciesDictionaryComponent,
+    NewPostComponent
   ],
   imports: [
     CommonModule,

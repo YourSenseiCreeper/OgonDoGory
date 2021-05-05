@@ -1,0 +1,39 @@
+<div class="new-mail-box">
+    <form [formGroup]="postForm">
+        <h1 class="h3 mb-3 font-weight-normal">Nowy post</h1>
+        <div class="form-group row">
+            <div class="col-8">
+                <label for="inputLogin" class="sr-only">Tytuł</label>
+                <input formControlName="title" type="text" id="inputLogin" class="form-control" placeholder="Tytuł" autofocus="">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-5 ngb-dp-day ngb-dp-today">
+                <div class="input-group">
+                    <input type="text" class="form-control" ngbDatepicker placeholder="yyyy-mm-dd" formControlName="publicationDate" #dpFrom="ngbDatepicker"/>
+                <div class="input-group-append">
+                    <button
+                        class="btn btn-outline-primary calendar"
+                        (click)="dpFrom.toggle()"
+                        type="button"
+                    >
+                    <i class="far fa-calendar-alt" style="color: #20c997;"></i>
+                    </button>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-10">
+                <label for="inputMessage" class="sr-only">Treść</label>
+                <textarea formControlName="text" type="text" id="inputMessage" class="form-control" rows="4" placeholder="Treść"></textarea>
+            </div>
+        </div>
+        <div style="color: red">
+            {{ errorMessage }}
+        </div>
+        <button class="btn btn-primary" type="submit" (click)="send()">Dodaj</button>
+    </form>
+</div>

@@ -5,6 +5,7 @@ import { AdminDashboardComponent } from './dashboard/dashboard.component';
 import { AdminComponentComponent } from './admin.component';
 import { NewMailComponent } from './mails/new-mail.component';
 import { SpeciesDictionaryComponent } from './species-dictionary/species-dictionary.component';
+import { NewPostComponent } from './posts/new-post.component';
 
 @NgModule({
   imports: [
@@ -20,6 +21,14 @@ import { SpeciesDictionaryComponent } from './species-dictionary/species-diction
             children: [
               {
                 path: "new", component: NewMailComponent,
+              },
+            ]
+          },
+          {
+            path: "posts",
+            children: [
+              {
+                path: "new", component: NewPostComponent,
               },
             ]
           },
