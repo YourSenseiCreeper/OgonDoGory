@@ -17,12 +17,12 @@
 @media (min-width: 992px) {
     .carousel-inner .carousel-item-right.active,
     .carousel-inner .carousel-item-next {
-      transform: translateX(16.6%);
+      transform: translateX(33%);
     }
     
     .carousel-inner .carousel-item-left.active, 
     .carousel-inner .carousel-item-prev {
-      transform: translateX(-16.6%);
+      transform: translateX(-33%);
     }
 }
 

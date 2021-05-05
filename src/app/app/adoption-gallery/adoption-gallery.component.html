@@ -4,42 +4,14 @@
             <div class="carousel-inner w-100" role="listbox">
                 <div class="carousel-item active">
                     <div class="col-lg-2">
-                        <img class="img-fluid" src="https://via.placeholder.com/350">
+                        <img style="height: 250px; width: auto;" src="https://via.placeholder.com/350">
                     </div>
                 </div>
-                <div class="carousel-item">
+                <div class="carousel-item" *ngFor="let animal of imagesWithAnimalIds">
                     <div class="col-lg-2">
-                        <img class="img-fluid" src="https://via.placeholder.com/350">
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="col-lg-2">
-                        <img class="img-fluid" src="https://via.placeholder.com/350">
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="col-lg-2">
-                        <img class="img-fluid" src="https://via.placeholder.com/350">
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="col-lg-2">
-                        <img class="img-fluid" src="https://via.placeholder.com/350">
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="col-lg-2">
-                        <img class="img-fluid" src="https://via.placeholder.com/350">
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="col-lg-2">
-                        <img class="img-fluid" src="https://via.placeholder.com/350">
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="col-lg-2">
-                        <img class="img-fluid" src="https://via.placeholder.com/350">
+                        <a href="doadopcji/{{ animal.id }}">
+                            <img style="height: 250px; width: auto;" [src]="animal.imageUrl">
+                        </a>
                     </div>
                 </div>
             </div>
