@@ -6,6 +6,7 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AdminComponentComponent } from './admin.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AdminRoutingModule,
     ReactiveFormsModule,
     NgbModule,
+    NgxPaginationModule,
   ]
 })
 export class AdminModule { }

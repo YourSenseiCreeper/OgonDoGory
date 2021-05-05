@@ -23,20 +23,21 @@ export class Animal implements IAnimal {
     public adoptionDate?: Date) {}
 }
 
-export interface BlogPost {
-  title: string;
-  publicationDate: Moment;
-  author: string;
-  paragraphs: Array<string>;
+export class BlogPost {
+  constructor(public title: string,
+    public author: string,
+    public publicationDate: Date,
+    public paragraphs: Array<string>) {}
 }
 
-export interface MailEntry {
-  title: string;
-  authorEmail: string;
-  sendDate: Moment;
-  recipientEmail: string;
-  isOpened: boolean;
-  textParagraphs: Array<string>;
+export class MailEntry {
+  constructor(public title: string,
+    public authorEmail: string,
+    public recepientEmail: string,
+    public sendDate: Date,
+    public opened: boolean,
+    public textParagraphs:
+    Array<string>) {}
 }
 
 export class User {
@@ -73,10 +74,21 @@ const initialState: IData = {
             // {id: 7, name: 'Garfield', age: 3, isDog: false, isCat: true, species: 'Kot', foundDate: moment({year: 2021, month: 3, day: 17}), descriptionParagraphs: ["Pierwsza linia opisu", "Druga linia opisu"], keywords: ['dog', 'ciapek', 'radosny'], pictureUrl: '../assets/cats/garfield.jpg'},
             // {id: 8, name: 'Malachit', age: 3, isDog: false, isCat: true, species: 'Kot', foundDate: moment({year: 2021, month: 4, day: 1}), descriptionParagraphs: ["Uroczy kot o pięknych oczach", "Druga linia opisu"], keywords: ['kot', 'malachit', 'oczy'], pictureUrl: '../assets/cats/malachit.jpg'},
           ],
-  posts: [{title: 'Pierwszy post', publicationDate: moment(), author: 'Admin', paragraphs: ['Pierwszy akapit', 'Drugi akapit']}],
+  posts: [new BlogPost('Pierwszy post', 'Admin', new Date(2020, 12, 15), ['Pierwszy akapit', 'Drugi akapit']),
+    new BlogPost('Wesołych świąt', 'Admin', new Date(2020, 12, 23), ['Pierwszy akapit', 'Drugi akapit']),
+    new BlogPost('Nowy rok i ogon do góry', 'Admin', new Date(2021, 1, 3), ['Pierwszy akapit', 'Drugi akapit']),
+    new BlogPost('Problmy noworoczne psów', 'Admin', new Date(2021, 1, 5), ['Pierwszy akapit', 'Drugi akapit']),
+    new BlogPost('Porzucone "prezenty"', 'Admin', new Date(2021, 2, 7), ['Pierwszy akapit', 'Drugi akapit']),
+  ],
   dogSpecies: ['Dog francuski'],
   catSpecies: ['Kot perski'],
-  mailbox: [{title: 'Testowy mail', authorEmail: 'hello@ogondogory.pl', recipientEmail: 'hello@ogondogory.pl', sendDate: moment(), isOpened: false, textParagraphs: ['Hello', 'Pierwszy mail!']}]
+  mailbox: [new MailEntry('Testowy mail', 'hello@ogondogory.pl', 'hello@ogondogory.pl', new Date(), false, ['Hello', 'Pierwszy mail!']),
+    new MailEntry('Sucha karma dla schroniska', 'marlena031@wp.pl', 'hello@ogondogory.pl', new Date(), false, ['Dzień dobry', 'Mam trochę suchej karmy dla psów']),
+    new MailEntry('RE: Sucha karma dla schroniska', 'marlena031@wp.pl', 'hello@ogondogory.pl', new Date(), false, ['Hello', 'Pierwszy mail!']),
+    new MailEntry('Zagubiony pies, okolice schroniska', 'mieciuwarch67@o2.pl', 'hello@ogondogory.pl', new Date(), false, ['Hello', 'Pierwszy mail!']),
+    new MailEntry('Jakiś mail', 'kontakt@adriatyk.pl', 'hello@ogondogory.pl', new Date(), false, ['Hello', 'Pierwszy mail!']),
+    new MailEntry('Sample text', 'sample@text.pl', 'hello@ogondogory.pl', new Date(), false, ['Hello', 'Pierwszy mail!']),
+    new MailEntry('Nikt go nie znajdzie', 'witam@porywacz.pl', 'hello@ogondogory.pl', new Date(), false, ['Hello', 'Pierwszy mail!'])]
 }
 
 @Injectable({
@@ -123,7 +135,7 @@ export class DataService {
   }
 
   getBlogPosts(): Array<BlogPost> {
-    let blogPosts = this.state.posts.sort((a, b) => a.publicationDate.isAfter(b.publicationDate) ? 1 : -1);
+    let blogPosts = this.state.posts.sort((a, b) => a.publicationDate < b.publicationDate ? 1 : -1);
     return blogPosts;
   }
 
@@ -148,7 +160,7 @@ export class DataService {
   }
 
   readMail(mailIndex: number) {
-    this.state.mailbox[mailIndex].isOpened = true;
+    this.state.mailbox[mailIndex].opened = true;
   }
 
   hasUserWithLoginAndPassword(login: string, password: string) {

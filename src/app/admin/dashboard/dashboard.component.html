@@ -3,7 +3,7 @@
     <div class="col-7" style="background-color:lightgreen; padding-top: 100px;">
         <div class="row">
             <div class="col-7" style="background-color: lightpink;">
-                Wszystkie zwierzęta
+                <h2>Wszystkie zwierzęta</h2>
             </div>
             <div class="col-5" style="background-color: lightslategrey;">
                 <div class="row justify-content-around">
@@ -35,9 +35,9 @@
     <!-- Mail & Posts -->
     <div class="col-5" style="background-color: lightpink">
         <!-- Emails -->
-        <div class="row" style="background-color: mistyrose">
+        <div class="row align-items-center" style="background-color: mistyrose">
             <div class="col-7" style="background-color: olivedrab;">
-                Poczta
+                <h2>Poczta</h2>
             </div>
             <div class="col-5" style="background-color: lightslategrey;">
                 <div class="row justify-content-around">
@@ -47,20 +47,66 @@
             </div>
         </div>
         <div class="row">
-            <div class="col" style="height: 250px;">
-                Maile
+            <div class="col" style="height: 275px;">
+                <div class="row align-items-center" 
+                    *ngFor="let mail of mails | slice: (mailsPage - 1) * mailsPageSize:mailsPage * mailsPageSize" 
+                    style="background-color: rgb(101, 207, 101); margin-bottom: 5px; border: 2px solid wheat">
+                    <div class="col align-middle">
+                        <div class="row">
+                            <div class="col" style="font-size: 20px;">
+                                {{ mail.title }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col" style="font-size: 11px;">
+                                Od: {{ mail.authorEmail }}, {{ mail.sendDate | date: 'mediumDate' }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-auto p-2" style="background-color: mediumpurple; cursor: pointer" routerLink="admin/mails/{ mail.id }">
+                        <i class="far fa-envelope-open" style="font-size: 25px;"></i>
+                    </div>
+                </div>
+                <div class="row justify-content-end p-1">
+                    <ngb-pagination [collectionSize]="mails.length" [(page)]="mailsPage" [pageSize]="mailsPageSize">
+                    </ngb-pagination>
+                </div>
             </div>
         </div>
 
-        <div class="row" style="background-color: mediumslateblue;">
-            <div class="col-8">Artykuły</div>
-            <div class="col-4" style="background-color: orchid;">
+        <div class="row align-items-center" style="background-color: mediumslateblue;">
+            <div class="col">
+                <h2>Artykuły</h2>
+            </div>
+            <div class="col-2 p-1" style="background-color: orchid;">
                 <button class="btn btn-primary">Dodaj</button>
             </div>
         </div>
         <div class="row" style="background-color: orange;">
             <div class="col" style="height: 250px;">
-                Artykuly
+                <div class="row align-items-center" 
+                    *ngFor="let article of articles | slice: (articlesPage - 1) * articlesPageSize:articlesPage * articlesPageSize" 
+                    style="background-color: rgb(101, 207, 101); margin-bottom: 5px; border: 2px solid wheat">
+                    <div class="col align-middle">
+                        <div class="row">
+                            <div class="col" style="font-size: 20px;">
+                                {{ article.title }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col" style="font-size: 11px;">
+                                {{ article.publicationDate | date: 'mediumDate' }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-auto p-2" style="background-color: mediumpurple; cursor: pointer" routerLink="admin/articles/{ mail.id }">
+                        <i class="far fa-edit" style="font-size: 25px;"></i>
+                    </div>
+                </div>
+                <div class="row justify-content-end p-1">
+                    <ngb-pagination [collectionSize]="articles.length" [(page)]="articlesPage" [pageSize]="articlesPageSize">
+                    </ngb-pagination>
+                </div>
             </div>
         </div>
     </div>
