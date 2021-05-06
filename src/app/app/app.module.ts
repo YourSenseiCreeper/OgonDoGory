@@ -32,10 +32,10 @@ import { PostDetailsComponent } from './post-details/post-details.component';
     AppRoutingModule,
     HttpClientModule,
     NgbCollapseModule,
-    NgbModule,
     FormsModule,
     ReactiveFormsModule,
     CollapseModule,
+    NgbModule,
   ],
   providers: [
     Title,

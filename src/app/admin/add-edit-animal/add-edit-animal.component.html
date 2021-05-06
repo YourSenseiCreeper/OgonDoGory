@@ -1,24 +1,27 @@
 <div class="new-mail-box">
     <form [formGroup]="animalForm">
         <h1 class="h3 mb-3 font-weight-normal">Nowe zwierzę do adopcji</h1>
-        <div class="form-group row">
-            <div>
-                Zdjęcie
-            </div>
+        <div class="form-group row align-items-center">
             <div class="col-4">
-                <div class="col-sm-5 ngb-dp-day ngb-dp-today">
-                    <div class="input-group">
-                        <input type="text" class="form-control" ngbDatepicker placeholder="yyyy-mm-dd" formControlName="foundDate" #dpFrom="ngbDatepicker"/>
-                    <div class="input-group-append">
-                        <button
-                            class="btn btn-outline-primary calendar"
-                            (click)="dpFrom.toggle()"
-                            type="button"
-                        >
-                        <i class="far fa-calendar-alt" style="color: #20c997;"></i>
-                        </button>
-                    </div>
-                    </div>
+                <img class="img-fluid img-border" [src]="previewUrl">
+            </div>
+            <div class="col">
+                <input type="file" class="form-control-file" accept="image/*" (change)="fileUpload($event)">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-4 ngb-dp-day ngb-dp-today">
+                <div class="input-group">
+                    <input type="text" class="form-control" ngbDatepicker placeholder="yyyy-mm-dd" formControlName="foundDate" #dpFrom="ngbDatepicker"/>
+                <div class="input-group-append">
+                    <button
+                        class="btn btn-outline-primary calendar"
+                        (click)="dpFrom.toggle()"
+                        type="button">
+                    <i class="far fa-calendar-alt" style="color: #20c997;"></i>
+                    </button>
+                </div>
                 </div>
             </div>
             <div class="col-4">
@@ -30,7 +33,7 @@
             <div class="col-8">
                 <input formControlName="name" type="text" id="inputName" class="form-control" placeholder="Jak się wabi">
             </div>
-            <!-- <div class="col-4">
+            <div ngbDropdown class="col-4">
                 <button class="btn btn-primary" id="dropdownGatunek" ngbDropdownToggle>
                     <span *ngIf="animalForm.get('isDogIsCat')?.value === ''">Wszystkie zwierzęta</span>
                     <span *ngIf="animalForm.get('isDogIsCat')?.value != ''">{{ animalForm.get('specie')?.value }}</span>
@@ -43,14 +46,14 @@
                         {{ gatunek }}
                     </button>
                 </div>
-            </div> -->
+            </div>
         </div>
 
         <div class="form-group row">
             <div class="col-8">
                 <input formControlName="keywords" type="text" id="inputKeywords" class="form-control" placeholder="Słowa kluczowe - oddzielaj przecinkiem">
             </div>
-            <!-- <div class="col-4">
+            <div ngbDropdown class="col-4">
                 <button class="btn btn-primary" id="dropdownSpecies" ngbDropdownToggle>
                     <span *ngIf="animalForm.get('species')?.value === ''">Wszystkie zwierzęta</span>
                     <span *ngIf="animalForm.get('species')?.value != ''">{{ animalForm.get('species')?.value }}</span>
@@ -63,7 +66,7 @@
                         {{ gatunek }}
                     </button>
                 </div>
-            </div> -->
+            </div>
         </div>
 
         <div class="form-group row">

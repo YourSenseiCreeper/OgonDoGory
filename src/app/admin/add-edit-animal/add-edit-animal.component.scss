@@ -1,5 +1,11 @@
+$main-theme: rgb(101, 207, 101);
+
 .new-mail-box {
     padding-left: 200px;
     padding-right: 50px;
     padding-top: 75px;
+}
+
+.img-border {
+    border: 2px solid $main-theme;
 }

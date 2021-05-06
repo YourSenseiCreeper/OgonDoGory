@@ -1,11 +1,12 @@
+import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { LoginComponent } from './login/login.component';
 import { AdminDashboardComponent } from './dashboard/dashboard.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AdminRoutingModule } from './admin-routing.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminComponentComponent } from './admin.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCollapseModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NewMailComponent } from './mails/new-mail.component';
 import { SpeciesDictionaryComponent } from './species-dictionary/species-dictionary.component';
@@ -20,14 +21,17 @@ import { AddEditAnimalComponent } from './add-edit-animal/add-edit-animal.compon
     NewMailComponent,
     SpeciesDictionaryComponent,
     NewPostComponent,
-    AddEditAnimalComponent
+    AddEditAnimalComponent,
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
+    FormsModule,
     ReactiveFormsModule,
-    NgbModule,
     NgxPaginationModule,
+    NgbCollapseModule,
+    CollapseModule,
+    NgbModule,
   ]
 })
 export class AdminModule { }

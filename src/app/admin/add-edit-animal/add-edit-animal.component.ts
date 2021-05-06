@@ -1,4 +1,4 @@
-import { BlogPost } from '../../data.service';
+import { Animal, BlogPost } from '../../data.service';
 import { Router } from '@angular/router';
 import { DataService } from '../../data.service';
 import { Component, OnInit } from "@angular/core";
@@ -13,6 +13,7 @@ export class AddEditAnimalComponent implements OnInit {
     
     animalForm: FormGroup;
     errorMessage: string = '';
+    previewUrl = 'https://via.placeholder.com/250';
 
     constructor(
         private formBuilder: FormBuilder,
@@ -20,7 +21,7 @@ export class AddEditAnimalComponent implements OnInit {
         private router: Router
     ) {
         this.animalForm = this.formBuilder.group({
-            imageUrl: new FormControl('', null),
+            image: new FormControl('', null),
             foundDate: new FormControl('', null),
             age: new FormControl('', null),
             name: new FormControl('', null),
@@ -36,14 +37,35 @@ export class AddEditAnimalComponent implements OnInit {
             if (this.errorMessage !== '') {
                 this.errorMessage = '';
             }
-        })
+        });
+    }
+
+    fileUpload(fileInput: any) {
+        var fileData = <File> fileInput.target.files[0];
+        this.animalForm.get('image')?.setValue(fileData.name);
+
+        // Show preview 
+        var mimeType = fileData.type;
+        if (mimeType.match(/image\/*/) == null) {
+            return;
+        }
+    
+        var reader = new FileReader();      
+        reader.readAsDataURL(fileData); 
+        reader.onload = (_event) => { 
+            this.previewUrl = reader.result as string; 
+        }
     }
 
     send() {
         let raw = this.animalForm.getRawValue();
-        let paragraphs = raw.text.split('\n');
-        if (raw.title !== '' && raw.publicationDate !== '' && raw.text !== '') {
-            this.dataService.addBlogPost(new BlogPost(0, raw.title, 'Admin', new Date(raw.publicationDate.year, raw.publicationDate.month, raw.publicationDate.day), paragraphs));
+        let paragraphs = raw.description.indexOf('\n') !== -1 ? raw.description.split('\n') : [raw.description];
+        let keywords = raw.keywords.indexOf(',') !== -1 ? raw.keywords.split(',') : [raw.keywords];
+        let foundDate = new Date(raw.foundDate.year, raw.foundDate.month, raw.foundDate.day);
+        let isDog = raw.isDogIsCat === "Pies" ? true : false;
+        let isCat = !isDog;
+        if (raw.name !== '') {
+            this.dataService.addAnimal(new Animal(0, raw.name, raw.age, isDog, isCat, raw.species, foundDate, paragraphs, keywords, raw.image));
             this.router.navigate(['admin/dashboard']);
         } else {
             this.errorMessage = "Brakuje tytułu lub adresata!";

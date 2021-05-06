@@ -72,9 +72,9 @@ const initialState: IData = {
             {id: 3, name: 'Piorun', age: 2, isDog: true, isCat: false, species: 'Mieszaniec', foundDate: new Date(2021, 2, 3), descriptionParagraphs: ["Pierwsza linia opisu", "Druga linia opisu"], keywords: ['dog', 'ciapek', 'radosny'], pictureUrl: '../assets/pochacz-3429043_1280.jpg'},
             {id: 4, name: 'Naga', age: 3, isDog: true, isCat: false, species: 'Cheiwawa', foundDate: new Date(2021, 2, 5), descriptionParagraphs: ["Pierwsza linia opisu", "Druga linia opisu"], keywords: ['dog', 'ciapek', 'radosny'], pictureUrl: '../assets/dog-4608266_1280.jpg'},
             {id: 5, name: 'Popiół', age: 3, isDog: false, isCat: true, species: 'Kot perski', foundDate: new Date(2021, 3, 11), descriptionParagraphs: ["Pierwsza linia opisu", "Druga linia opisu"], keywords: ['dog', 'ciapek', 'radosny'], pictureUrl: '../assets/cats/popiół.jpg'},
-            {id: 6, name: 'Birma', age: 3, isDog: false, isCat: true, species: 'Kot', foundDate: new Date(2021, 3, 13), descriptionParagraphs: ["Pierwsza linia opisu", "Druga linia opisu"], keywords: ['dog', 'ciapek', 'radosny'], pictureUrl: '../assets/cats/birma.jpg'},
-            {id: 7, name: 'Garfield', age: 3, isDog: false, isCat: true, species: 'Kot', foundDate: new Date(2021, 3, 17), descriptionParagraphs: ["Pierwsza linia opisu", "Druga linia opisu"], keywords: ['dog', 'ciapek', 'radosny'], pictureUrl: '../assets/cats/garfield.jpg'},
-            {id: 8, name: 'Malachit', age: 3, isDog: false, isCat: true, species: 'Kot', foundDate: new Date(2021, 4, 1), descriptionParagraphs: ["Uroczy kot o pięknych oczach", "Druga linia opisu"], keywords: ['kot', 'malachit', 'oczy'], pictureUrl: '../assets/cats/malachit.jpg'},
+            {id: 6, name: 'Birma', age: 3, isDog: false, isCat: true, species: 'Kot syberyjski', foundDate: new Date(2021, 3, 13), descriptionParagraphs: ["Pierwsza linia opisu", "Druga linia opisu"], keywords: ['dog', 'ciapek', 'radosny'], pictureUrl: '../assets/cats/birma.jpg'},
+            {id: 7, name: 'Garfield', age: 3, isDog: false, isCat: true, species: 'Kot amerykański', foundDate: new Date(2021, 3, 17), descriptionParagraphs: ["Pierwsza linia opisu", "Druga linia opisu"], keywords: ['dog', 'ciapek', 'radosny'], pictureUrl: '../assets/cats/garfield.jpg'},
+            {id: 8, name: 'Malachit', age: 3, isDog: false, isCat: true, species: 'Maine Coon', foundDate: new Date(2021, 4, 1), descriptionParagraphs: ["Uroczy kot o pięknych oczach", "Druga linia opisu"], keywords: ['kot', 'malachit', 'oczy'], pictureUrl: '../assets/cats/malachit.jpg'},
           ],
   posts: [new BlogPost(1, 'Pierwszy post', 'Admin', new Date(2020, 12, 15), ['Pierwszy akapit', 'Drugi akapit']),
     new BlogPost(2, 'Wesołych świąt', 'Admin', new Date(2020, 12, 23), ['Pierwszy akapit', 'Drugi akapit']),
@@ -106,6 +106,9 @@ export class DataService {
    }
 
    addAnimal(animal: Animal) {
+     // obrazki tylko z folderu assets
+     let imagePath = "../assets/"+animal.pictureUrl;
+     animal.pictureUrl = imagePath;
      this.state.animals.push(animal);
    }
 
@@ -171,6 +174,8 @@ export class DataService {
   }
 
   addBlogPost(post: BlogPost) {
+    // writeFileSync()
+
     post.id = Math.max(...this.state.posts.map(p => p.id)) + 1;
     this.state.posts.push(post);
   }
