@@ -38,7 +38,7 @@ export class NewMailComponent implements OnInit {
         let raw = this.loginForm.getRawValue();
         let paragraphs = raw.message.split('\n');
         if (raw.title !== '' && raw.recipient !== '') {
-            this.dataService.sendNewMail(new MailEntry(raw.title, 'kontakt@ogondogory.pl', raw.recipient, new Date(), false, paragraphs));
+            this.dataService.sendNewMail(new MailEntry(0, raw.title, 'kontakt@ogondogory.pl', raw.recipient, new Date(), false, paragraphs));
             this.router.navigate(['admin/dashboard']);
         } else {
             this.errorMessage = "Brakuje tytułu lub adresata!";

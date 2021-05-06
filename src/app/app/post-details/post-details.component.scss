@@ -14,7 +14,11 @@ $main-theme-background: rgb(78, 158, 78);
 }
 
 .post-background {
+    padding: 20px;
     background-color: $main-theme;
+}
+
+.post-paragraph {
     padding: 0.5rem 1rem; 
     font-size: 15pt;
 }

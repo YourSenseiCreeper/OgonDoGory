@@ -31,7 +31,8 @@ export class BlogPost {
 }
 
 export class MailEntry {
-  constructor(public title: string,
+  constructor(public id: number,
+    public title: string,
     public authorEmail: string,
     public recepientEmail: string,
     public sendDate: Date,
@@ -79,17 +80,17 @@ const initialState: IData = {
     new BlogPost(2, 'Wesołych świąt', 'Admin', new Date(2020, 12, 23), ['Pierwszy akapit', 'Drugi akapit']),
     new BlogPost(3, 'Nowy rok i ogon do góry', 'Admin', new Date(2021, 1, 3), ['Pierwszy akapit', 'Drugi akapit']),
     new BlogPost(4, 'Problmy noworoczne psów', 'Admin', new Date(2021, 1, 5), ['Pierwszy akapit', 'Drugi akapit']),
-    new BlogPost(5, 'Porzucone "prezenty"', 'Admin', new Date(2021, 2, 7), ['Pierwszy akapit', 'Drugi akapit']),
+    new BlogPost(5, 'Porzucone "prezenty"', 'Admin', new Date(2021, 2, 7), ['Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et velit quam. Sed vel nisl a velit vehicula varius. Sed a lobortis mauris. Donec ultrices, tellus sagittis pellentesque ornare, mi odio condimentum justo, non placerat libero leo ac tellus. Curabitur et elit laoreet, fermentum diam non, pharetra nibh. Sed ut odio vitae mauris luctus scelerisque. Sed sodales augue lectus, id rutrum nisi porttitor vel. Sed aliquam, ante eu vestibulum mollis, purus sapien placerat sapien, vel congue arcu lacus ac dolor. Sed quis placerat justo. Fusce quis posuere ligula. Vivamus erat libero, pellentesque eget nisl ac, dapibus gravida mauris. Integer in iaculis diam, vel pulvinar ligula. Suspendisse sed tellus lectus. Vivamus tempus turpis turpis, non lobortis elit sodales a. Proin a leo quis metus fermentum volutpat. Ut vel orci odio.', 'Integer et tortor tempor, iaculis libero non, posuere risus. Nunc dolor dui, eleifend a ante ut, viverra dignissim quam. Donec ut iaculis leo. Maecenas hendrerit, mi vitae mattis elementum, ex elit porta velit, id placerat quam nisi a turpis. Praesent a volutpat eros. Etiam luctus diam quis odio eleifend tristique. Aliquam a dictum nisl, in bibendum ex.', 'Aliquam viverra ligula dolor, nec vehicula erat gravida at. Suspendisse euismod varius condimentum. Vivamus posuere tellus eget tortor ultrices iaculis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vivamus eu tortor quis ante vehicula dignissim. Sed sit amet tellus pulvinar ipsum viverra luctus cursus a enim. Morbi suscipit eros vitae aliquam scelerisque. Praesent at nunc in nulla lobortis vehicula.', 'Integer pellentesque cursus suscipit. Duis vulputate at sapien quis lacinia. Donec varius felis ipsum, ac rhoncus magna lacinia ut. Nunc non turpis ut enim ornare feugiat. Pellentesque placerat, neque sit amet ornare gravida, arcu lectus mollis nibh, eu varius justo urna eu arcu. Etiam eget euismod libero, et aliquet ipsum. Maecenas sit amet turpis sem. Phasellus pharetra condimentum nunc condimentum vestibulum. Donec augue justo, egestas vitae nunc id, volutpat porttitor risus. Sed sed ante tortor. Donec vulputate, nibh eu interdum iaculis, felis nibh ultrices tellus, non vehicula nulla tortor quis ligula. Curabitur egestas aliquet ipsum eu congue. Praesent commodo risus eros, vitae tincidunt libero lobortis sit amet. Aliquam nec sem dolor.']),
   ],
   dogSpecies: ['Dog francuski', 'Bernardyn', 'Cheiwawa', 'Mieszaniec', 'Labrador', 'Husky syberyjski', 'Golden retriever', 'Owczarek niemiecki'],
   catSpecies: ['Kot perski', 'Brytyjski krótkowłosy', 'Maine Coon', 'Amerykański krótkowłosy', 'Kot sfinks', 'Kot syberyjski'],
-  mailbox: [new MailEntry('Testowy mail', 'hello@ogondogory.pl', 'hello@ogondogory.pl', new Date(2020, 12, 15), false, ['Hello', 'Pierwszy mail!']),
-    new MailEntry('Sucha karma dla schroniska', 'marlena031@wp.pl', 'hello@ogondogory.pl', new Date(2020, 12, 29), false, ['Dzień dobry', 'Mam trochę suchej karmy dla psów']),
-    new MailEntry('RE: Sucha karma dla schroniska', 'marlena031@wp.pl', 'hello@ogondogory.pl', new Date(2021, 1, 4), false, ['Hello', 'Pierwszy mail!']),
-    new MailEntry('Zagubiony pies, okolice schroniska', 'mieciuwarch67@o2.pl', 'hello@ogondogory.pl', new Date(2021, 1, 11), false, ['Hello', 'Pierwszy mail!']),
-    new MailEntry('Jakiś mail', 'kontakt@adriatyk.pl', 'hello@ogondogory.pl', new Date(2021, 2, 16), false, ['Hello', 'Pierwszy mail!']),
-    new MailEntry('Sample text', 'sample@text.pl', 'hello@ogondogory.pl', new Date(2021, 2, 18), false, ['Hello', 'Pierwszy mail!']),
-    new MailEntry('Nikt go nie znajdzie', 'witam@porywacz.pl', 'hello@ogondogory.pl', new Date(2021, 3, 6), false, ['Hello', 'Pierwszy mail!'])]
+  mailbox: [new MailEntry(1, 'Testowy mail', 'hello@ogondogory.pl', 'hello@ogondogory.pl', new Date(2020, 12, 15), false, ['Hello', 'Pierwszy mail!']),
+    new MailEntry(2, 'Sucha karma dla schroniska', 'marlena031@wp.pl', 'hello@ogondogory.pl', new Date(2020, 12, 29), false, ['Dzień dobry', 'Mam trochę suchej karmy dla psów']),
+    new MailEntry(3, 'RE: Sucha karma dla schroniska', 'marlena031@wp.pl', 'hello@ogondogory.pl', new Date(2021, 1, 4), false, ['Hello', 'Pierwszy mail!']),
+    new MailEntry(4, 'Zagubiony pies, okolice schroniska', 'mieciuwarch67@o2.pl', 'hello@ogondogory.pl', new Date(2021, 1, 11), false, ['Hello', 'Pierwszy mail!']),
+    new MailEntry(5, 'Jakiś mail', 'kontakt@adriatyk.pl', 'hello@ogondogory.pl', new Date(2021, 2, 16), false, ['Hello', 'Pierwszy mail!']),
+    new MailEntry(6, 'Sample text', 'sample@text.pl', 'hello@ogondogory.pl', new Date(2021, 2, 18), false, ['Hello', 'Pierwszy mail!']),
+    new MailEntry(7, 'Nikt go nie znajdzie', 'witam@porywacz.pl', 'hello@ogondogory.pl', new Date(2021, 3, 6), false, ['Hello', 'Pierwszy mail!'])]
 }
 
 @Injectable({
@@ -157,6 +158,7 @@ export class DataService {
   }
 
   sendNewMail(mail: MailEntry) {
+    mail.id = Math.max(...this.state.mailbox.map(p => p.id)) + 1;
     this.state.mailbox.push(mail);
   }
 

@@ -11,9 +11,9 @@
                     <button class="btn btn-secondary mx-1" routerLink="/admin/species">Słownik ras</button>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" [formGroup]="searchForm">
                 <div class="col">
-                    <input type="text" placeholder="Szukaj po imieniu lub opisie" class="form-control" name="anyText" id="anyText"/>
+                    <input formControlName="query" type="text" placeholder="Szukaj po imieniu lub opisie" class="form-control" name="anyText" id="anyText"/>
                 </div>
             </div>
         </div>
@@ -42,7 +42,7 @@
                 <div class="col-5">
                     <div class="row justify-content-around">
                         <button class="btn btn-primary" routerLink="/admin/mails/new">Nowy mail</button>
-                        <button class="btn btn-secondary">Szczegóły</button>
+                        <button class="btn btn-secondary">Wszystkie</button>
                     </div>
                 </div>
             </div>
@@ -62,7 +62,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="w-auto p-2" style="background-color: mediumpurple; cursor: pointer" routerLink="admin/mails/{ mail.id }">
+                        <div class="w-auto p-2 entry-button" routerLink="admin/mails/{{ mail.id }}">
                             <i class="far fa-envelope-open" style="font-size: 25px;"></i>
                         </div>
                     </div>
@@ -100,7 +100,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="w-auto p-2" style="background-color: mediumpurple; cursor: pointer" routerLink="admin/articles/{ mail.id }">
+                        <div class="w-auto p-2 entry-button" routerLink="admin/articles/{{ article.id }}">
                             <i class="far fa-edit" style="font-size: 25px;"></i>
                         </div>
                     </div>

@@ -9,7 +9,8 @@
         Opublikowano {{ post.publicationDate | date: 'longDate' }}
     </div>
 </div>
-<div class="row post-background mx-1" *ngFor="let paragraph of post.paragraphs">
-    {{ paragraph }}
-
+<div class="row post-background mx-1" style="text-justify: auto;">
+    <div class="post-paragraph" *ngFor="let paragraph of post.paragraphs">
+        {{ paragraph }}
+    </div>
 </div>

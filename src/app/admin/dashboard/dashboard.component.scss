@@ -23,4 +23,16 @@ $main-theme-background: rgb(78, 158, 78);
     margin-bottom: 5px;
     border: 2px solid $main-theme;
     width: 90%;
+    border-radius: 3px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 6px 0 rgba(0, 0, 0, 0.14);
+}
+
+.entry-button {
+    border-radius: 3px;
+    background-color: $main-theme-background;
+    cursor: pointer
+}
+
+.entry-button:hover {
+    background-color: $main-theme;
 }
