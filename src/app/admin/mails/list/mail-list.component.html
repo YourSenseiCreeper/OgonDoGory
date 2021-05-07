@@ -1,0 +1,33 @@
+<div class="new-mail-box">
+    <div class="row">
+        <div class="col">
+            <h1>Skrzynka pocztowa</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col" style="height: 275px;">
+            <div class="row align-items-center justify-content-center section" 
+                *ngFor="let mail of mailbox | slice: (mailsPage - 1) * mailsPageSize:mailsPage * mailsPageSize">
+                <div class="col align-middle">
+                    <div class="row">
+                        <div class="col" style="font-size: 20px;">
+                            {{ mail.title }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col" style="font-size: 11px;">
+                            Od: {{ mail.authorEmail }}, {{ mail.sendDate | date: 'mediumDate' }}
+                        </div>
+                    </div>
+                </div>
+                <div class="w-auto p-2 entry-button" routerLink="admin/mails/{{ mail.id }}">
+                    <i class="far fa-envelope-open" style="font-size: 25px;"></i>
+                </div>
+            </div>
+            <div class="row justify-content-end p-1">
+                <ngb-pagination [collectionSize]="mailbox.length" [(page)]="mailsPage" [pageSize]="mailsPageSize">
+                </ngb-pagination>
+            </div>
+        </div>
+    </div>
+</div>

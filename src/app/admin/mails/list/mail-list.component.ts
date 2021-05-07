@@ -1,19 +1,22 @@
-import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
-import { DataService, MailEntry } from '../../data.service';
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { DataService, MailEntry } from 'src/app/data.service';
 
 @Component({
-    selector: 'admin-mail-new',
-    templateUrl: './new-mail.component.html',
-    styleUrls: ['../../app/adoption/adoption.component.scss', './new-mail.component.scss']
+    selector: 'admin-mail-list',
+    templateUrl: './mail-list.component.html',
+    styleUrls: ['../../../app/adoption/adoption.component.scss', './mail-list.component.scss']
 })
-export class NewMailComponent implements OnInit {
+export class MailListComponent implements OnInit {
     
     loginForm: FormGroup;
-    errorMessage: string = '';
-
+    mailbox: MailEntry[] = [];
+    allMails: number = 0;
+    unreadMails: number = 0;
+    mailsPage = 1;
+    mailsPageSize = 10;
+    
     constructor(
         private formBuilder: FormBuilder,
         private dataService: DataService,
@@ -27,11 +30,14 @@ export class NewMailComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.loginForm.valueChanges.subscribe(v => {
-            if (this.errorMessage !== '') {
-                this.errorMessage = '';
-            }
-        })
+        // this.loginForm.valueChanges.subscribe(v => {
+        //     if (this.errorMessage !== '') {
+        //         this.errorMessage = '';
+        //     }
+        // });
+        this.mailbox = this.dataService.getMailbox();
+        this.allMails = this.mailbox.length;
+        this.unreadMails = this.mailbox.filter(m => !m.opened).length;
     }
 
     send() {
@@ -40,8 +46,6 @@ export class NewMailComponent implements OnInit {
         if (raw.title !== '' && raw.recipient !== '') {
             this.dataService.sendNewMail(new MailEntry(0, raw.title, 'kontakt@ogondogory.pl', raw.recipient, new Date(), false, paragraphs));
             this.router.navigate(['admin/dashboard']);
-        } else {
-            this.errorMessage = "Brakuje tytułu lub adresata!";
         }
     }
 }

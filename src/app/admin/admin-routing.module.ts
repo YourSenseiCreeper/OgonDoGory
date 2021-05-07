@@ -3,10 +3,11 @@ import { RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { AdminDashboardComponent } from './dashboard/dashboard.component';
 import { AdminComponentComponent } from './admin.component';
-import { NewMailComponent } from './mails/new-mail.component';
 import { SpeciesDictionaryComponent } from './species-dictionary/species-dictionary.component';
 import { NewPostComponent } from './posts/new-post.component';
 import { AddEditAnimalComponent } from './add-edit-animal/add-edit-animal.component';
+import { MailListComponent } from './mails/list/mail-list.component';
+import { NewMailComponent } from './mails/new/new-mail.component';
 
 @NgModule({
   imports: [
@@ -18,12 +19,10 @@ import { AddEditAnimalComponent } from './add-edit-animal/add-edit-animal.compon
             path: "dashboard", component: AdminDashboardComponent,
           },
           {
-            path: "mails",
-            children: [
-              {
-                path: "new", component: NewMailComponent,
-              },
-            ]
+            path: "mails/new", component: NewMailComponent
+          },
+          { 
+            path: "mails/list", component: MailListComponent 
           },
           {
             path: "posts/new", component: NewPostComponent,
