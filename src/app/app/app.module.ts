@@ -16,6 +16,7 @@ import { AdoptionDetailsComponent } from './adoption-details/adoption-details.co
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CollapseModule } from "ngx-bootstrap/collapse";
 import { PostDetailsComponent } from './post-details/post-details.component';
+import { HowToHelpComponent } from './how-to-help/how-to-help.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { PostDetailsComponent } from './post-details/post-details.component';
     AlarmTelephoneComponent,
     AdoptionGalleryComponent,
     PostDetailsComponent,
+    HowToHelpComponent
   ],
   imports: [
     CommonModule,

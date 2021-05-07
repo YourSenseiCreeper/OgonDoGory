@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { AdoptionComponent } from './adoption/adoption.component';
 import { AdoptionDetailsComponent } from './adoption-details/adoption-details.component';
 import { AlarmTelephoneComponent } from './alarm-telephone/alarm-telephone.component';
+import { HowToHelpComponent } from './how-to-help/how-to-help.component';
 
 @NgModule({
   imports: [
@@ -32,6 +33,9 @@ import { AlarmTelephoneComponent } from './alarm-telephone/alarm-telephone.compo
           },
           {
             path: "telefon", component: AlarmTelephoneComponent
+          },
+          {
+            path: "jakpomagac", component: HowToHelpComponent
           }
         ]
       },

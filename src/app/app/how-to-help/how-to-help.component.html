@@ -1,0 +1,16 @@
+<div class="text-center">
+  <h1 class="mb-3">Jak pomagać?</h1>
+</div>
+<div class="row mb-3 p-1">
+  <div *ngFor="let option of options" 
+    class="col mx-1 option" 
+    [class.selected]="selectedOptionObject.option === option" (click)="selectOption(option)">
+    {{ option }}
+  </div>
+</div>
+<div *ngIf="selectedOptionObject !== undefined && selectedOptionObject !== null">
+  <h1 class="mb-3">{{ selectedOptionObject.header }}</h1>
+  <div class="description-box">
+    {{ selectedOptionObject.text }}
+  </div>
+</div>
