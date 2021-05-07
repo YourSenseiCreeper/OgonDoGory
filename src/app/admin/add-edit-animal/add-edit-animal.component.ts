@@ -14,6 +14,9 @@ export class AddEditAnimalComponent implements OnInit {
     animalForm: FormGroup;
     errorMessage: string = '';
     previewUrl = 'https://via.placeholder.com/250';
+    dogSpecies: string[] = [];
+    catSpecies: string[] = [];
+    species: string[] = [];
 
     constructor(
         private formBuilder: FormBuilder,
@@ -21,13 +24,13 @@ export class AddEditAnimalComponent implements OnInit {
         private router: Router
     ) {
         this.animalForm = this.formBuilder.group({
-            image: new FormControl('', null),
-            foundDate: new FormControl('', null),
+            image: new FormControl(null, null),
+            foundDate: new FormControl(null, null),
             age: new FormControl('', null),
             name: new FormControl('', null),
-            isDogIsCat: new FormControl('', null),
+            isDogIsCat: new FormControl(null, null),
             keywords: new FormControl('', null),
-            species: new FormControl('', null),
+            species: new FormControl(null, null),
             description: new FormControl('', null)
         });
     }
@@ -38,6 +41,8 @@ export class AddEditAnimalComponent implements OnInit {
                 this.errorMessage = '';
             }
         });
+        this.dogSpecies = this.dataService.getDogSpecies();
+        this.catSpecies = this.dataService.getCatSpecies();
     }
 
     fileUpload(fileInput: any) {
@@ -55,6 +60,11 @@ export class AddEditAnimalComponent implements OnInit {
         reader.onload = (_event) => { 
             this.previewUrl = reader.result as string; 
         }
+    }
+
+    selectIsDogIsCat(gatunek: string) {
+        this.animalForm.get('isDogIsCat')?.setValue(gatunek);
+        this.species = gatunek === "Pies" ? this.dogSpecies : this.catSpecies;
     }
 
     send() {

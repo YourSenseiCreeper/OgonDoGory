@@ -35,14 +35,11 @@
             </div>
             <div ngbDropdown class="col-4">
                 <button class="btn btn-primary" id="dropdownGatunek" ngbDropdownToggle>
-                    <span *ngIf="animalForm.get('isDogIsCat')?.value === ''">Wszystkie zwierzęta</span>
-                    <span *ngIf="animalForm.get('isDogIsCat')?.value != ''">{{ animalForm.get('specie')?.value }}</span>
+                    <span *ngIf="animalForm.get('isDogIsCat')?.value === null">Wszystkie zwierzęta</span>
+                    <span *ngIf="animalForm.get('isDogIsCat')?.value !== null">{{ animalForm.get('isDogIsCat')?.value }}</span>
                 </button>
                 <div ngbDropdownMenu aria-labelledby="dropdownGatunek">
-                    <button class="dropdown-item" (click)="animalForm.get('isDogIsCat')?.setValue('')">
-                        Gatunek
-                    </button>
-                    <button class="dropdown-item" *ngFor="let gatunek of ['Pies', 'Kot']" (click)="animalForm.get('isDogIsCat')?.setValue(gatunek)">
+                    <button class="dropdown-item" *ngFor="let gatunek of ['Pies', 'Kot']" (click)="selectIsDogIsCat(gatunek)">
                         {{ gatunek }}
                     </button>
                 </div>
@@ -54,16 +51,13 @@
                 <input formControlName="keywords" type="text" id="inputKeywords" class="form-control" placeholder="Słowa kluczowe - oddzielaj przecinkiem">
             </div>
             <div ngbDropdown class="col-4">
-                <button class="btn btn-primary" id="dropdownSpecies" ngbDropdownToggle>
-                    <span *ngIf="animalForm.get('species')?.value === ''">Wszystkie zwierzęta</span>
-                    <span *ngIf="animalForm.get('species')?.value != ''">{{ animalForm.get('species')?.value }}</span>
+                <button class="btn btn-primary" id="dropdownSpecies" ngbDropdownToggle [disabled]="species.length === 0">
+                    <span *ngIf="animalForm.get('species')?.value === null">Rasa</span>
+                    <span *ngIf="animalForm.get('species')?.value !== null">{{ animalForm.get('species')?.value }}</span>
                 </button>
                 <div ngbDropdownMenu aria-labelledby="dropdownSpecies">
-                    <button class="dropdown-item" (click)="animalForm.get('species')?.setValue('')">
-                        Rasa
-                    </button>
-                    <button class="dropdown-item" *ngFor="let gatunek of ['Pies', 'Kot']" (click)="animalForm.get('species')?.setValue(gatunek)">
-                        {{ gatunek }}
+                    <button class="dropdown-item" *ngFor="let specie of species" (click)="animalForm.get('species')?.setValue(specie)">
+                        {{ specie }}
                     </button>
                 </div>
             </div>
