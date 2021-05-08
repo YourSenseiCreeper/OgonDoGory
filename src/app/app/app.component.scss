@@ -53,18 +53,6 @@ footer .row {
 footer .row h3 {
     font-weight: 300;
 }
-// .body-background {
-//     position: absolute;
-//     top: 0px;
-//     background: url('../../assets/homepage_bg_big.jpg');
-//     background-position: center center;
-//     background-size: cover;
-//     z-index: -1;
-// }
-
-// .main-body::before {
-//     margin-top: 25%;
-// }
 
 .main-body {
     width: 85%;
@@ -91,49 +79,38 @@ footer .row h3 {
     transition: width 0.5s height 0,5s;
 }
 
-.socialmedia {
+// socialmedia
+.icon-bar {
     position: fixed;
-    margin-top: 300px;
-    height: 150px;
-    width: 50px;
-    background-color: blue;
-}
-
-.icon-facebook, .icon-instagram, .icon-blogger {
-    margin-left: 0px;
-    height: 40px;
-    width: 40px;
-}
-
-.icon-facebook {
-    background-color: cornflowerblue;
-}
-
-.icon-facebook:hover {
-    background-color: rgba(100, 148, 237, 0.8);
-}
-
-.icon-instagram {
-    background-color: rgba(188, 143, 143, 1);
-}
-
-.icon-instagram:hover {
-    background-color: rgba(188, 143, 143, 0.8);
-}
-
-.icon-blogger {
-    background-color: rgba(255, 166, 0, 1);
-}
-
-.icon-blogger:hover {
-    background-color: rgba(255, 166, 0, 0.8);
-}
-
-// html:not([data-scroll='0']) {
-
-//     .logo {
-//         width: 75px;
-//         height: 75px;
-//     }
-
-// }
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  
+  /* Style the icon bar links */
+  .icon-bar a {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 20px;
+    border-radius: 5px;
+  }
+  
+  .icon-bar a:hover {
+    background-color: $main-theme;
+  }
+  
+  .facebook {
+    background: #3B5998;
+  }
+  
+  .twitter {
+    background: #55ACEE;
+  }
+  
+  .youtube {
+    background: #bb0000;
+  }

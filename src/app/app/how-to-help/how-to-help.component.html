@@ -3,7 +3,7 @@
 </div>
 <div class="row mb-3 p-1">
   <div *ngFor="let option of options" 
-    class="col mx-1 option" 
+    class="col mx-1 option"
     [class.selected]="selectedOptionObject.option === option" (click)="selectOption(option)">
     {{ option }}
   </div>
@@ -11,6 +11,8 @@
 <div *ngIf="selectedOptionObject !== undefined && selectedOptionObject !== null">
   <h1 class="mb-3">{{ selectedOptionObject.header }}</h1>
   <div class="description-box">
-    {{ selectedOptionObject.text }}
+    <div class="mb-4" *ngFor="let entry of selectedOptionObject.text">
+      {{ entry }}
+    </div>
   </div>
 </div>
