@@ -37,7 +37,7 @@ import { ContactComponent } from './contact/contact.component';
             path: "telefon", component: AlarmTelephoneComponent
           },
           {
-            path: "jakpomagac", component: HowToHelpComponent
+            path: "wolontariat", component: HowToHelpComponent
           },
           {
             path: "kontakt", component: ContactComponent

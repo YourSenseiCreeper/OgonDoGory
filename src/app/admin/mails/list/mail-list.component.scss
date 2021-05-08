@@ -9,7 +9,6 @@ $main-theme-background: rgb(78, 158, 78);
 }
 
 .section {
-    background-color: $main-theme;
     border: 5px solid $main-theme;
     border-radius: 3px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.14);
@@ -23,5 +22,13 @@ $main-theme-background: rgb(78, 158, 78);
 }
 
 .entry-button:hover {
+    background-color: $main-theme;
+}
+
+.unread {
+    background-color: $main-theme-hover;
+}
+
+.read {
     background-color: $main-theme;
 }

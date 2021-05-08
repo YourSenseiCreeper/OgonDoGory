@@ -47,7 +47,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col " style="height: 275px;">
+                <div class="col" style="height: 275px;">
                     <div class="row align-items-center justify-content-center entry" 
                         *ngFor="let mail of mails | slice: (mailsPage - 1) * mailsPageSize:mailsPage * mailsPageSize">
                         <div class="col align-middle">
@@ -66,7 +66,7 @@
                             <i class="far fa-envelope-open" style="font-size: 25px;"></i>
                         </div>
                     </div>
-                    <div class="row justify-content-end p-1">
+                    <div class="row justify-content-end p-1 mx-2">
                         <ngb-pagination [collectionSize]="mails.length" [(page)]="mailsPage" [pageSize]="mailsPageSize">
                         </ngb-pagination>
                     </div>
@@ -76,11 +76,11 @@
         
         <!-- Articles -->
         <div class="section my-3">
-            <div class="row align-items-center">
-                <div class="col">
+            <div class="row align-items-center" style="padding-left: 10px;">
+                <div class="col-8">
                     <h2>Artykuły</h2>
                 </div>
-                <div class="col-2 p-1">
+                <div class="col-2">
                     <button class="btn btn-primary" routerLink="/admin/posts/new">Dodaj</button>
                 </div>
             </div>
@@ -104,7 +104,7 @@
                             <i class="far fa-edit" style="font-size: 25px;"></i>
                         </div>
                     </div>
-                    <div class="row justify-content-end p-1">
+                    <div class="row justify-content-end p-1 mx-2">
                         <ngb-pagination [collectionSize]="articles.length" [(page)]="articlesPage" [pageSize]="articlesPageSize">
                         </ngb-pagination>
                     </div>

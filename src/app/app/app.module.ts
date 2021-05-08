@@ -29,7 +29,7 @@ import { ContactComponent } from './contact/contact.component';
     AdoptionGalleryComponent,
     PostDetailsComponent,
     HowToHelpComponent,
-    ContactComponent
+    ContactComponent,
   ],
   imports: [
     CommonModule,

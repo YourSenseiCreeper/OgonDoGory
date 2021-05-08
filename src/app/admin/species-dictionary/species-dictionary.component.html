@@ -13,10 +13,10 @@
                 </div>
                 <button class="btn btn-primary mx-sm-3 mb-2" type="submit" (click)="addDogSpecies()">Dodaj rasę</button>
                 <div style="color: red">
-                    {{ errorMessage }}
+                    {{ errorMessageDog }}
                 </div>
             </form>
-            <div *ngFor="let dog of dogSpecies" class="p-1 mb-2" style="width: 100%; background-color: rgb(101, 207, 101); border: 2px solid white">
+            <div *ngFor="let dog of dogSpecies" class="p-1 mb-2 entry">
                 {{ dog }}
             </div>
         </div>
@@ -28,10 +28,10 @@
                 </div>
                 <button class="btn btn-primary mx-sm-3 mb-2" type="submit" (click)="addCatSpecies()">Dodaj rasę</button>
                 <div style="color: red">
-                    {{ errorMessage }}
+                    {{ errorMessageCat }}
                 </div>
             </form>
-            <div *ngFor="let cat of catSpecies" class="p-1 mb-2" style="width: 100%; background-color: rgb(101, 207, 101); border: 2px solid white">
+            <div *ngFor="let cat of catSpecies" class="p-1 mb-2 entry">
                 {{ cat }}
             </div>
         </div>

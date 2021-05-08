@@ -40,6 +40,11 @@ export class MailListComponent implements OnInit {
         this.unreadMails = this.mailbox.filter(m => !m.opened).length;
     }
 
+    openMail(mail: MailEntry) {
+        mail.opened = !mail.opened;
+        this.unreadMails = this.mailbox.filter(m => !m.opened).length;
+    }
+
     send() {
         let raw = this.loginForm.getRawValue();
         let paragraphs = raw.message.split('\n');

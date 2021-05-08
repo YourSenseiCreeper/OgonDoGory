@@ -1,12 +1,14 @@
 <div class="new-mail-box">
     <div class="row">
         <div class="col">
-            <h1>Skrzynka pocztowa</h1>
+            <h1>Skrzynka pocztowa</h1><span>Wszystkie {{ allMails }} ({{ unreadMails }} nieprzeczytanych)</span>
         </div>
     </div>
     <div class="row">
         <div class="col" style="height: 275px;">
-            <div class="row align-items-center justify-content-center section" 
+            <div class="row align-items-center justify-content-center section"
+                [class.unread]="!mail.opened"
+                [class.read]="mail.opened"
                 *ngFor="let mail of mailbox | slice: (mailsPage - 1) * mailsPageSize:mailsPage * mailsPageSize">
                 <div class="col align-middle">
                     <div class="row">
@@ -20,8 +22,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="w-auto p-2 entry-button" routerLink="admin/mails/{{ mail.id }}">
-                    <i class="far fa-envelope-open" style="font-size: 25px;"></i>
+                <div class="w-auto p-2 entry-button" routerLink="admin/mails/{{ mail.id }}" (click)="openMail(mail)">
+                    <i *ngIf="mail.opened" class="far fa-envelope-open" style="font-size: 25px;"></i>
+                    <i *ngIf="!mail.opened" class="far fa-envelope" style="font-size: 25px;"></i>
                 </div>
             </div>
             <div class="row justify-content-end p-1">

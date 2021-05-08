@@ -16,7 +16,8 @@ export class SpeciesDictionaryComponent implements OnInit {
     catSpeciesForm: FormGroup;
     catSpecies: Array<string> = [];
 
-    errorMessage: string = '';
+    errorMessageDog: string = '';
+    errorMessageCat: string = '';
 
     constructor(
         private formBuilder: FormBuilder,
@@ -35,13 +36,13 @@ export class SpeciesDictionaryComponent implements OnInit {
         this.catSpecies = this.dataService.getCatSpecies();
 
         this.dogSpeciesForm.valueChanges.subscribe(v => {
-            if (this.errorMessage !== '') {
-                this.errorMessage = '';
+            if (this.errorMessageDog !== '') {
+                this.errorMessageDog = '';
             }
         });
         this.catSpeciesForm.valueChanges.subscribe(v => {
-            if (this.errorMessage !== '') {
-                this.errorMessage = '';
+            if (this.errorMessageCat !== '') {
+                this.errorMessageCat = '';
             }
         });
     }
@@ -51,7 +52,7 @@ export class SpeciesDictionaryComponent implements OnInit {
         if (raw.speciesName !== '') {
             this.dataService.addDogSpecie(raw.speciesName);
         } else {
-            this.errorMessage = "Nazwa rasy jest pusta!";
+            this.errorMessageDog = "Nazwa rasy jest pusta!";
         }
     }
 
@@ -60,7 +61,7 @@ export class SpeciesDictionaryComponent implements OnInit {
         if (raw.speciesName !== '') {
             this.dataService.addCatSpecies(raw.speciesName);
         } else {
-            this.errorMessage = "Nazwa rasy jest pusta!";
+            this.errorMessageCat = "Nazwa rasy jest pusta!";
         }
     }
 }

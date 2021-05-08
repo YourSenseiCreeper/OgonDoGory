@@ -3,3 +3,12 @@
     padding-right: 50px;
     padding-top: 75px;
 }
+
+$main-theme: rgb(101, 207, 101);
+
+.entry {
+    background-color: $main-theme;
+    border: 5px solid $main-theme;
+    border-radius: 3px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.14);
+}
