@@ -44,10 +44,18 @@ $main-theme-background: rgb(78, 158, 78);
     background-color: $main-theme-hover;
 }
 
-footer .row {
+footer {
     border: 4px solid $main-theme;
     background-color: $main-theme-background;
     color: white;
+}
+
+footer .row a {
+    color: white
+}
+
+footer .row a:hover {
+    color: $main-theme-hover;
 }
 
 footer .row h3 {
