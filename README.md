@@ -1,5 +1,8 @@
 # Ogondogory
 
+Projekt stworzony na potrzeby przedmiotu Projektowanie interfejsu na 6 semestrze Informatyki na Politechnice Koszalińskiej.
+Baza danych stworzona jest w pliku `database.ts` i po odświeżeniu strony dodane nowe zwierzęta / rasy / posty / maile znikają.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.2.
 
 ## Development server
